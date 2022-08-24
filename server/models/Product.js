@@ -10,36 +10,42 @@ Product.init(
     {
       name: {
         type: DataTypes.STRING,
-        allowNull: false
+
+       // allowNull: false
       },
       image: {
         type: DataTypes.STRING,
-        allowNull: false,
+       // allowNull: false,
       },
       color: {
         type: DataTypes.STRING,
-        allowNull: false,
+       // allowNull: false,
       },
       description: {
         type: DataTypes.TEXT,
-        allowNull: false,
+       // allowNull: false,
       },
       size: {
         type: DataTypes.STRING,
-        allowNull: false,
+       //allowNull: false,
       },
       brand: {
         type: DataTypes.STRING,
-        allowNull: false,
+       // allowNull: false,
       },
       price: {
         type: DataTypes.INTEGER,
-        allowNull: false,
+       // allowNull: false,
       },
       stock: {
         type: DataTypes.INTEGER,
-        allowNull: false,
+        //allowNull: false,
+      },
+      categoria: {
+        type: DataTypes.STRING,
+        // allowNull:false,
       }
+
     },
     {
       sequelize,
