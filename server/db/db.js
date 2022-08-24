@@ -6,4 +6,6 @@ const db = new Sequelize("olympicsports",null, null, {
     logging: false
 });
 
+
 module.exports = db
+

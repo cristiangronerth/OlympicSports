@@ -1,11 +1,15 @@
+import React from "react";
+import { Routes, Route } from "react-router-dom"
+
+import Home from "./pages/Home";
+
 function App() {
   return (
-    <div className="App">
-      <h1 className="text-blue-600 text-xl " >
-        Hello world
-      </h1>
-    </div>
-  );
+    <Routes>
+      <Route path="/" element={<Home/>}/>
+    </Routes> 
+
+  )
 }
 
 export default App;

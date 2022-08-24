@@ -8,10 +8,14 @@ class CartItem extends Model {
 
 CartItem.init(
     {
-      quantity: {
+
+     quantity: {
         type: DataTypes.INTEGER,
+
         allowNull: false,
-      }
+        defaultValue: 1,
+     },
+
     },
     {
       sequelize,

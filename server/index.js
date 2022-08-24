@@ -2,6 +2,7 @@
 const express = require("express");
 const path = require("path");
 const cookieParser = require("cookie-parser");
+
 const models = require("./models");
 const cors = require('cors')
 
@@ -9,11 +10,12 @@ const app = express();
 const db = require("./db/db");
 
 const envs = require("./config/envs")
-const cookieParser = require("cookie-parser");
+
 
 // Express Route File Requires
-const authAPI = require("./routes")
-//const routes = require("./routes");
+
+const routes = require("./routes");
+
 
 
 app.use(express.json());
