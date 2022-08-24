@@ -25,7 +25,7 @@ app.use(cors())
 // Express Routing
 app.use("/api", routes);
 
-
+   
 db.sync({ force: false }).then(() => {
   console.log("db connected");  
   app.listen(8080, () => {
