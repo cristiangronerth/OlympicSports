@@ -1,4 +1,5 @@
 import React from 'react'
+
 import ImgPortada from './ImgPortada'
 import Btn from '../../../common/Btn'
 import { StyledCategorySection, StyledCollections, StyledHeading, StyledSubHeading, Wrapper } from './styledComponents'
