@@ -8,6 +8,7 @@ class CartItem extends Model {
 
 CartItem.init(
     {
+
      quantity: {
         type: DataTypes.INTEGER,
 

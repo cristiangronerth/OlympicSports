@@ -8,10 +8,12 @@ class CartUser extends Model {
 
 CartUser.init(
     {
-     total: {
+
+      total: {
         type: DataTypes.INTEGER,
         allowNull: false,
-     }
+      }
+
     },
     {
       sequelize,

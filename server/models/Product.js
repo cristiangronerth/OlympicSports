@@ -11,6 +11,7 @@ Product.init(
       name: {
         type: DataTypes.STRING,
 
+
        // allowNull: false
       },
       image: {
@@ -45,6 +46,7 @@ Product.init(
         type: DataTypes.STRING,
         // allowNull:false,
       }
+
 
     },
     {

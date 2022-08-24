@@ -2,15 +2,20 @@
 const express = require("express");
 const path = require("path");
 const cookieParser = require("cookie-parser");
-const models = require("./models")
+
+const models = require("./models");
 const cors = require('cors')
 
 const app = express();
-const db = require("./db/db")
+const db = require("./db/db");
+
+const envs = require("./config/envs")
 
 
 // Express Route File Requires
-const routes = require("./routes/index");
+
+const routes = require("./routes");
+
 
 
 app.use(express.json());
