@@ -10,8 +10,11 @@ CartItem.init(
     {
      quantity: {
         type: DataTypes.INTEGER,
+
         allowNull: false,
-     }
+        defaultValue: 1,
+     },
+
     },
     {
       sequelize,
