@@ -30,8 +30,8 @@ const StyledScroll = styled.h4`
   font-weight: bold;
   margin-top: 2em;
   margin-bottom: 2em;
-  padding-top: 0.5em;
-  padding-bottom: 0.5em;
+  padding-top: 1.5em;
+  padding-bottom: 1.5em;
 
   border: 1px solid #141414;
   background: #ddc92a;

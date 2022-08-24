@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import ArrowBtn from "./ArrowBtn";
+import Btn from "../../../common/Btn";
 import Category from "./Category";
 
 function Categories() {
@@ -8,7 +8,7 @@ function Categories() {
     <CategoryList>
       <Category />
       <ArrowButton>
-        <ArrowBtn/>
+        <Btn title="GO TO SHOP"/>
       </ArrowButton>
     </CategoryList>
   );

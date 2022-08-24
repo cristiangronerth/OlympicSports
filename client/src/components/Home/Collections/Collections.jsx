@@ -31,7 +31,7 @@ function Collections() {
         <StyledCategorySection>
           <ImgPortada />
         </StyledCategorySection>
-        <Btn/>
+        <Btn title="EXPLORE" />
       </StyledCollections>
     </Wrapper>
   )

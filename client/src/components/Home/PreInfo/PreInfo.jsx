@@ -6,8 +6,8 @@ function PreInfo() {
     <Info>
       <p>
         <span className="firstSpan">Who we are</span>
-        An independent <span className="secondSpan">brand</span> of urban trekking shoes and
-        accessories that comes from a convergence of arts and personalities.
+        An independent <span className="secondSpan">brand</span> of sports apparel and
+           accessories that come from a convergence of urban and official sports.
       </p>
     </Info>
   );
@@ -30,7 +30,7 @@ const Info = styled.section`
     text-decoration: underline;
   }
   p {
-    font-size: 3.2rem;
+    font-size: clamp(1.5rem, 3vw, 3.2rem);
     line-height: 1.1em;
     letter-spacing: 0px;
   }

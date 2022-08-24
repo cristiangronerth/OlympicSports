@@ -2,13 +2,13 @@ import circleIcon from "../assets/icons/circle-container.svg";
 import arrowIcon from "../assets/icons/arrow.svg";
 import styled from "styled-components";
 
-function Btn() {
+function Btn(props) {
   return (
     <Button>
-      <p>EXPLORE</p>
+      <p>{props.title}</p>
       <Icon>
-        <img src={circleIcon} alt=""></img>
-        <img src={arrowIcon} alt=""></img>
+        <img className="btnCircle" src={circleIcon} alt=""></img>
+        <img className="btnArrow" src={arrowIcon} alt=""></img>
       </Icon>
     </Button>
   );
@@ -37,6 +37,17 @@ const Icon = styled.a`
 
   &:hover {
     cursor: pointer;
+    animation-name: rotation;
+    animation-duration: 0.4s;
+
+    @keyframes rotation {
+      from {
+        transform: rotate(360deg);
+      }
+      to {
+        transform: rotate(0deg);
+      }
+    }
   }
 
   img {
