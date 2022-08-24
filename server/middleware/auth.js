@@ -12,4 +12,9 @@ function validateAuth(req, res, next) {
   next();
 }
 
+
+
+
+
+
 module.exports = { validateAuth };
