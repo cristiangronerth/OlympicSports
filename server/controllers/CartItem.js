@@ -1,20 +1,31 @@
+const { CartUser } = require("../models");
 const CartItem = require("../models/CartItem");
 
 exports.CreateCartItem = (req, res) => {
-  CartItem.findOne({ where: { productId: req.body.productId } }).then(
-    (item) => {
-      if (!item) {
-        CartItem.create(req.body)
-          .then((item) => res.status(201).send(item))
-          .catch((error) => {
-            console.log("Error to create item", error);
-          });
-      } else {
-        item.update({ quantity: item.quantity + 1 });
-        res.sendStatus(201);
+  const id = req.body.id
+  CartUser.findOne({where:{
+    id : 1 //esto es el id del usuario
+  }})
+  .then((cartUser)=>{
+    CartItem.findOne({ where: { productId: req.body.productId } }).then(
+      (item) => {
+        if (!item) {
+          CartItem.create(req.body)
+            .then((item) => {
+              cartUser.addCartItem(item.dataValues.id)
+              res.sendStatus(201)
+            })
+            .catch((error) => {
+              console.log("Error to create item", error);
+            });
+        } else {
+          item.update({ quantity: item.quantity + 1 });
+          res.sendStatus(201);
+        }
       }
-    }
-  );
+    );
+  })
+  
 };
 
 exports.DeleteCartItem = (req, res) => {
@@ -38,3 +49,19 @@ exports.ModifyCartItem = (req, res) => {
       console.log("Error to modify item", error);
     });
 };
+
+
+/* CartItem.findOne({ where: { productId: req.body.productId, userId: req.body.userId } }).then(
+  (item) => {
+    if (!item) {
+      CartItem.create(req.body)
+        .then((item) => res.status(201).send(item))
+        .catch((error) => {
+          console.log("Error to create item", error);
+        });
+    } else {
+      item.update({ quantity: item.quantity + 1 });
+      res.sendStatus(201);
+    }
+  }
+); */

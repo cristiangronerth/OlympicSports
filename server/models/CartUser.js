@@ -11,7 +11,7 @@ CartUser.init(
 
       total: {
         type: DataTypes.INTEGER,
-        allowNull: false,
+        allowNull: true,
       }
 
     },

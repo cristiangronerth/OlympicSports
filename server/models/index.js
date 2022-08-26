@@ -5,9 +5,11 @@ const CartItem = require("../models/CartItem")
 
 
 //CartItem.hasMany(Product)
-CartUser.hasMany(CartItem)
+CartUser.belongsToMany(CartItem,{through: "shoppingCart"})
+CartItem.belongsToMany(CartUser,{through: "shoppingCart"})
 CartUser.belongsTo(User)
 CartItem.belongsTo(Product)
+CartItem.belongsTo(User)
 
 
 module.exports = {User, Product,CartUser,CartItem}
