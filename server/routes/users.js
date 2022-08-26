@@ -22,8 +22,4 @@ router.get("/",validateAuth,users)
 
 router.get("/user/:id",validateAuth, user)
 
-
-
-
 module.exports = router;
-

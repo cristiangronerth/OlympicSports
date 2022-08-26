@@ -15,9 +15,6 @@ exports.admin = (req, res) =>{
     })
 }
 
-
-
-
 // editar users
 exports.profile = (req, res) => { 
   const userId = req.params.id;
@@ -54,6 +51,5 @@ exports.user = (req, res) => {
     where: { id: id }    
   }) 
   .then((user) => res.send(user));
+
 };
-
-

@@ -10,7 +10,7 @@ function Testimonials() {
       <TestimonialItem>
         <h2>William Gibson</h2>
         <p>
-          Good things come to those who wait – Déplacé Maison is what has been
+          Good things come to those who wait – Olympic Sports is what has been
           missing in the modern fashion industry for years. Buy a shoe of high
           quality and design it finally happened.
         </p>
