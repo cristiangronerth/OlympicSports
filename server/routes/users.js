@@ -30,3 +30,4 @@ router.get("/user/:id",validateAuth, user)
 
 
 module.exports = router;
+

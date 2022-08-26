@@ -8,10 +8,10 @@ for (let i = 0; i < 5; i++) {
     lastname: faker.name.lastName(),
     email: faker.internet.email(),
     password: "123asd", //faker.internet.password(),
-    province: faker.address.city(),
+    state: faker.address.city(),
     city: faker.address.cityName(),
-    adress: faker.address.street(),
-    postalCode: 1416, //faker.address.zipCode(),
+    address: faker.address.street(),
+    zip: 1416, //faker.address.zipCode(),
     phone: 123456, //faker.phone.number()
   });
 }
