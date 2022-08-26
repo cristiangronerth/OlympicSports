@@ -71,6 +71,19 @@ exports.logout = (req, res) => {
 // });
 
 
+
+// // editar users
+// users.put("/profile", (req, res) => {
+//   const userId = req.user.id;
+
+//   User.update(req.body, {
+//     where: { id: userId },
+//     returning: true,   //preguntar
+//   }).then(() => res.sendStatus(204));
+// });
+
+
+
 // /****************************************** */
 
 
@@ -85,4 +98,3 @@ exports.logout = (req, res) => {
 //     individualHooks: true,    //preguntar
 //   }).then(() => res.sendStatus(204));
 // });
-
