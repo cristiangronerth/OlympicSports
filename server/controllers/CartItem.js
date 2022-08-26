@@ -1,5 +1,4 @@
-const { CartUser } = require("../models");
-const CartItem = require("../models/CartItem");
+const { CartUser, CartItem } = require("../models");
 
 exports.CreateCartItem = (req, res) => {
   const id = req.body.id

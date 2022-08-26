@@ -1,6 +1,7 @@
 const express = require("express");
-const { CartHistory } = require("../models");
 const cartHistory = express.Router();
+
+const { CartHistory } = require("../models");
 
 cartHistory.get("/", (req, res) => {
   CartHistory.findOne({ where: { id: req.body.id } })
