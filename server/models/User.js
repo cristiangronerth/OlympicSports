@@ -28,7 +28,7 @@ User.init(
         allowNull: false,
       },
       salt: {
-        type: DataTypes.STRING,
+      type: DataTypes.STRING,
       },
       name: {
         type: DataTypes.STRING,
@@ -57,7 +57,11 @@ User.init(
       phone: {
         type: DataTypes.INTEGER,
         allowNull: false,
-      }
+      },
+      admin: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: false,
+      }, 
     },
     {
       sequelize,

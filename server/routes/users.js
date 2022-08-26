@@ -2,48 +2,31 @@ const express = require ("express");
 const router = express.Router(); 
 
 
-const User = require ("../models/User")
-const { generateToken, validateToken } = require("../config/tokens");
-const {validateAuth} = require("../middleware/auth")
+
+const {validateAuth} = require("../middleware/auth");
+const { register, login, validation, logout} = require("../controllers/auth");
+const { profile, changePassword, users, user, admin } = require("../controllers/users");
+
+router.put("/admin/:id", admin)
+
+router.post("/register", register) 
+
+router.post("/login", login); 
+
+router.get("/me",validateAuth, validation) 
+
+router.post("/logout",validateAuth, logout) 
 
 
+router.put("/profile/:id",validateAuth, profile)
 
+router.put("/changePassword",validateAuth,changePassword)
 
-const validateUser = require("../middleware/auth");
-const { register, login, validation, logout, googlelogin } = require("../controllers/auth");
-const { profile, changePassword, users, user, searchUser } = require("../controllers/user");
+router.get("/",validateAuth,users)
 
-router.post("/register", register) // si
-
-router.post("/login", login); // si
-
-router.get("/me",validateAuth, validation) // si
-
-router.post("/logout",validateAuth, logout) // si
-
-
-router.put("/profile",validateUser,profile)
-
-router.put("/changePassword",validateUser,changePassword)
-
-router.get("/",validateUser,users)
-
-router.get("/user/:id",validateUser, user)
-
-router.get("/search",validateUser, searchUser)
-
-
-module.exports = router;
-
-
-
-
-
-
-
+router.get("/user/:id",validateAuth, user)
 
 
 
 
 module.exports = router;
-
