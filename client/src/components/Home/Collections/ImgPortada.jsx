@@ -15,7 +15,7 @@ function ImgPortada() {
               src={manLeft}
               alt="woman's collection"
               width={500}
-              height={707}
+              height={500}
             ></Image>
             <StyledImageDetails>
               <p>(01)</p>
@@ -31,7 +31,7 @@ function ImgPortada() {
               src={womanRight}
               alt="men's collection"
               width={500}
-              height={707}
+              height={500}
             />
             <StyledImageDetails>
               <p>(02)</p>

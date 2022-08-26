@@ -22,6 +22,8 @@ const CategoryList = styled.section`
     grid-gap: 10px;
     overflow: scroll;
     padding-left: 2.5em;
+    margin-left: -1.7em;
+    margin-right: 1em;
 
     /* Hide Scrollbars */
     -ms-overflow-style: none;
