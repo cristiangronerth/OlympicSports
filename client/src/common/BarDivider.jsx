@@ -35,6 +35,10 @@ const StyledScroll = styled.h4`
 
   border: 1px solid #141414;
   background: #ddc92a;
+
+  @media screen and (max-width: 640px) {
+    width: 105.7vw;
+  }
 `;
 
 export default BarDivider;

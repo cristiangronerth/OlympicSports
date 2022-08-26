@@ -11,11 +11,9 @@ const db = require("./db/db");
 
 const envs = require("./config/envs")
 
-
 // Express Route File Requires
 
 const routes = require("./routes");
-
 
 
 app.use(express.json());

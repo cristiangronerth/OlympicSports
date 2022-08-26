@@ -25,6 +25,7 @@ exports.login = (req, res) => {
       if (!isValid) return res.sendStatus(401);
 
       const payload = {
+        id: user.id,
         email: user.email,
         name: user.name,
         lastname: user.lastname,
@@ -44,14 +45,10 @@ exports.login = (req, res) => {
   });
 };
 
-
-
 //valida si hay un usuario logueado, pedido de validar token
 exports.validation = (req, res) => {
   res.send(req.user);
 };
-
-
 
 // logout
 exports.logout = (req, res) => {

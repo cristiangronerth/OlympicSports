@@ -13,8 +13,6 @@ class User extends Model {
     return this.hash(password, this.salt)
     .then(newHash => newHash === this.password)
   }
-
-
 }
 
 User.init(
