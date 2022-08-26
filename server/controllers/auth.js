@@ -1,12 +1,17 @@
 const User = require ("../models/User")
 const { generateToken, validateToken } = require("../config/tokens");
 
-const {validateAuth} = require("../middleware/auth")
+const {validateAuth} = require("../middleware/auth");
+const { CartUser } = require("../models");
 
 // crear un usuario
 exports.register = (req, res) => {
   const user = req.body;
-  User.create(user).then(() => res.sendStatus(201));
+  User.create(user).then((user) => {
+    CartUser.create({
+      userId : user.id
+    }).then(()=>res.sendStatus(201))
+  });
 };
 
 
@@ -20,13 +25,14 @@ exports.login = (req, res) => {
       if (!isValid) return res.sendStatus(401);
 
       const payload = {
+        id: user.id,
         email: user.email,
         name: user.name,
         lastname: user.lastname,
-        provice: user.province,
+        state: user.state,
         city: user.city,
-        adress: user.adress,
-        postalCode: user.postalCode,
+        address: user.address,
+        zip: user.zip,
         phone: user.phone
       };
 
@@ -39,22 +45,16 @@ exports.login = (req, res) => {
   });
 };
 
-
-
 //valida si hay un usuario logueado, pedido de validar token
 exports.validation = (req, res) => {
   res.send(req.user);
 };
-
-
 
 // logout
 exports.logout = (req, res) => {
   res.clearCookie("token");
   res.sendStatus(204);
 };
-
-
 
 
 // // editar users
@@ -67,6 +67,17 @@ exports.logout = (req, res) => {
 //   }).then(() => res.sendStatus(204));
 // });
 
+
+
+// // editar users
+// users.put("/profile", (req, res) => {
+//   const userId = req.user.id;
+
+//   User.update(req.body, {
+//     where: { id: userId },
+//     returning: true,   //preguntar
+//   }).then(() => res.sendStatus(204));
+// });
 
 // /****************************************** */
 

@@ -13,8 +13,6 @@ class User extends Model {
     return this.hash(password, this.salt)
     .then(newHash => newHash === this.password)
   }
-
-
 }
 
 User.init(
@@ -28,7 +26,7 @@ User.init(
         allowNull: false,
       },
       salt: {
-        type: DataTypes.STRING,
+      type: DataTypes.STRING,
       },
       name: {
         type: DataTypes.STRING,
@@ -38,7 +36,7 @@ User.init(
         type: DataTypes.STRING,
         allowNull: false,
       },
-      province: {
+      state: {
         type: DataTypes.STRING,
         allowNull: false,
       },
@@ -46,18 +44,22 @@ User.init(
         type: DataTypes.STRING,
         allowNull: false,
       },
-      adress: {
+      address: {
         type: DataTypes.TEXT,
         allowNull: false,
       },
-      postalCode:{
+      zip:{
         type: DataTypes.INTEGER,
         allowNull: false,
       },
       phone: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.BIGINT,
         allowNull: false,
-      }
+      },
+      admin: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: false,
+      }, 
     },
     {
       sequelize,
