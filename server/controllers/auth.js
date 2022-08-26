@@ -1,8 +1,8 @@
 const User = require ("../models/User")
 const { generateToken, validateToken } = require("../config/tokens");
+
 const {validateAuth} = require("../middleware/auth");
 const { CartUser } = require("../models");
-
 
 // crear un usuario
 exports.register = (req, res) => {
@@ -78,8 +78,6 @@ exports.logout = (req, res) => {
 //     returning: true,   //preguntar
 //   }).then(() => res.sendStatus(204));
 // });
-
-
 
 // /****************************************** */
 
