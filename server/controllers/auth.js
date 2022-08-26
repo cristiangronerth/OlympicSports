@@ -1,10 +1,7 @@
-const User = require ("../models/User")
-const { generateToken, validateToken } = require("../config/tokens");
+const { CartUser, User } = require("../models");
+const { generateToken } = require("../config/tokens");
 
-const {validateAuth} = require("../middleware/auth");
-const { CartUser } = require("../models");
-
-// crear un usuario
+// register
 exports.register = (req, res) => {
   const user = req.body;
   User.create(user).then((user) => {
@@ -15,7 +12,7 @@ exports.register = (req, res) => {
 };
 
 
-// login usuario
+// login
 exports.login = (req, res) => {
   const { email, password } = req.body;
 
@@ -55,41 +52,3 @@ exports.logout = (req, res) => {
   res.clearCookie("token");
   res.sendStatus(204);
 };
-
-
-// // editar users
-// users.put("/profile", (req, res) => {
-//   const userId = req.user.id;
-
-//   User.update(req.body, {
-//     where: { id: userId },
-//     returning: true,   //preguntar
-//   }).then(() => res.sendStatus(204));
-// });
-
-
-
-// // editar users
-// users.put("/profile", (req, res) => {
-//   const userId = req.user.id;
-
-//   User.update(req.body, {
-//     where: { id: userId },
-//     returning: true,   //preguntar
-//   }).then(() => res.sendStatus(204));
-// });
-
-// /****************************************** */
-
-
-
-// //cambiar contraseña
-// users.put("/changePassword", validateAuth,(req, res) => {
-//   const userId = req.user.id;
-
-//   User.update(req.body, {
-//     where: { id: userId },
-//     returning: true,    //preguntar
-//     individualHooks: true,    //preguntar
-//   }).then(() => res.sendStatus(204));
-// });

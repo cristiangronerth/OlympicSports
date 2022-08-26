@@ -1,7 +1,7 @@
 const express = require("express");
-const { CreateCartItem, ModifyCartItem, DeleteCartItem } = require("../controllers/CartItem");
 const router = express.Router();
-const CartItem = require("../models/CartItem");
+
+const { CreateCartItem, ModifyCartItem, DeleteCartItem } = require("../controllers/CartItem");
 
 router.post("/", CreateCartItem);
 

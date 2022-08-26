@@ -1,8 +1,4 @@
-const User = require ("../models/User")
-
-const { generateToken, validateToken } = require("../config/tokens");
-const {validateAuth} = require("../middleware/auth")
-
+const { User } = require ("../models")
 
 //cambiar a admin
 exports.admin = (req, res) =>{
