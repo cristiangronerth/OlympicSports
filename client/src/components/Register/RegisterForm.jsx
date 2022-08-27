@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 import styled from "styled-components";
@@ -8,9 +8,10 @@ import rightRegister from "../../assets/images/register/rightRegister2.png"
 import { log, success, error } from "../../utils/logs"
 import { useInput } from "../../hooks/useInput";
 
-import { Flex, Box, FormControl, FormLabel, Input, Stack, HStack } from "@chakra-ui/react";
+import { Flex, Box, FormControl, FormLabel, Input, Stack, HStack, Select } from "@chakra-ui/react";
 import { useDispatch } from "react-redux";
 import { registerRequest } from "../../state/auth";
+import axios from "axios";
 
 
 function RegisterForm() {
@@ -38,6 +39,35 @@ function RegisterForm() {
     })
     .catch((res) => error(res.status, res.statusText))
   }
+
+  const [states,setStates] = useState([]);
+  const [cities,setCities] = useState([]);
+
+  useEffect(() => {
+    async function FetchStates () {
+      try {
+        const res = await axios.get("https://apis.datos.gob.ar/georef/api/provincias");
+        setStates(res.data.provincias)
+      }
+      catch (err) {
+        console.log(err)
+      }
+    }
+    FetchStates()
+  },[])
+
+  useEffect(() => {
+    async function FetchCities () {
+      try {
+        const res = await axios.get(`https://apis.datos.gob.ar/georef/api/municipios?provincia=${state.value}&aplanar=true&max=5000&exacto=true`);
+        setCities(res.data.municipios)
+      }
+      catch (err) {
+        console.log(err)
+      }
+    }
+    FetchCities()
+  },[state.value])
 
   return (
     <Flex minH={"89vh"} align={"center"} justify={"center"} className="sm:flex-col xl:flex-row">
@@ -75,23 +105,30 @@ function RegisterForm() {
             <FormControl>
               <div>
                 <FormLabel className="font-Avenir"><span className="text-xs float-left mb-1" style={{letterSpacing:"2px"}}>PASSWORD</span></FormLabel>
-                <Link to="/forgotpassword" className="font-Avenir text-xs float-right ">Forgot password?</Link>
               </div>
               <Input borderColor='black' focusBorderColor="black" type="password" minWidth="350px" {...password} />
             </FormControl>
 
             <HStack>
-              <Box>
+              <Box maxW='150px'>
                 <FormControl>
                   <FormLabel className="font-Avenir"><span className="text-xs" style={{letterSpacing:"2px"}} >STATE</span></FormLabel>
-                  <Input borderColor='black' focusBorderColor="black" type="text" {...state}/>
+                  <Select borderColor='black' focusBorderColor="black" placeholder='Select State' {...state}>
+                    {states.map((state,i) => (
+                      <option key={i} value={state.nombre}>{state.nombre}</option>
+                    ))}
+                  </Select>
                 </FormControl>
               </Box>
 
-              <Box>
+              <Box minW='150px'>
                 <FormControl>
-                  <FormLabel className="font-Avenir"><span className="text-xs" style={{letterSpacing:"2px"}} >CITY</span></FormLabel>
-                  <Input borderColor='black' focusBorderColor="black" type="text" {...city}/>
+                <FormLabel className="font-Avenir"><span className="text-xs" style={{letterSpacing:"2px"}} >CITY</span></FormLabel>
+                  <Select  borderColor='black' focusBorderColor="black" placeholder='Select City' {...city}>
+                    {cities.map((city,i) => (
+                      <option key={i} value={city.nombre}>{city.nombre}</option>
+                    ))}
+                  </Select>
                 </FormControl>
               </Box>
 

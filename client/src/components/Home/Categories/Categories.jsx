@@ -8,7 +8,7 @@ function Categories() {
     <CategoryList>
       <Category />
       <ArrowButton>
-        <Btn title="GO TO SHOP"/>
+        <Btn title="GO TO SHOP" />
       </ArrowButton>
     </CategoryList>
   );
