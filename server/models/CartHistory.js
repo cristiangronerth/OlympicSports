@@ -8,9 +8,15 @@ class CartHistory extends Model {
 
 CartHistory.init(
     {
-        quantity:{
-            type: DataTypes.INTEGER
-        }
+      products:{
+        type:DataTypes.ARRAY(DataTypes.TEXT)
+      },
+      quantityForProduct:{
+        type: DataTypes.ARRAY(DataTypes.INTEGER)
+      },
+      total:{
+        type:DataTypes.INTEGER
+      }
 
     },
     {
