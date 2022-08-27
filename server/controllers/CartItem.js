@@ -6,7 +6,7 @@ exports.CreateCartItem = (req, res) => {
     id : 1 //esto es el id del usuario
   }})
   .then((cartUser)=>{
-    CartItem.findOne({ where: { productId: req.body.productId } }).then(
+    CartItem.findOne({ where: { productId: req.body.productId, userId: 1} }).then(
       (item) => {
         if (!item) {
           CartItem.create(req.body)

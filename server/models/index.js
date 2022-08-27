@@ -12,6 +12,7 @@ CartUser.belongsTo(User)
 CartItem.belongsTo(Product)
 CartHistory.belongsTo(User)
 CartHistory.hasMany(CartUser)
+CartItem.belongsTo(User)
 
 
 
