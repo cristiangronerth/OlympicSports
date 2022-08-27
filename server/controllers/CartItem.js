@@ -3,7 +3,7 @@ const { CartUser, CartItem } = require("../models");
 exports.CreateCartItem = (req, res) => {
   const id = req.body.id
   CartUser.findOne({where:{
-    id : 1 //esto es el id del usuario
+    id : 2 //esto es el id del usuario
   }})
   .then((cartUser)=>{
     CartItem.findOne({ where: { productId: req.body.productId, userId: 1} }).then(
@@ -11,6 +11,7 @@ exports.CreateCartItem = (req, res) => {
         if (!item) {
           CartItem.create(req.body)
             .then((item) => {
+              console.log(item)
               cartUser.addCartItem(item.dataValues.id)
               res.sendStatus(201)
             })
