@@ -1,17 +1,41 @@
-const { CartUser, CartItem } = require("../models");
+const { CartUser, CartItem, Product } = require("../models");
+
+exports.GetCartItem = (req, res) => {
+  const { id } = req.user;
+  CartItem.findAll({
+    where: {
+      userId: id,
+    },
+  })
+    .then((cartItems) => res.send(cartItems))
+    .catch((error) => console.log(error));
+};
+
+exports.GetCartItems = (req, res) => {
+
+  const { id } = req.user;
+  const { productId } = req.query;
+
+  CartItem.findAll({
+    where: { userId: id },
+    include: { model: Product , where: {
+      id : productId
+    }}
+  }).then(cartItems => res.send(cartItems))
+  .catch(err => console.log(err))
+};
 
 exports.CreateCartItem = (req, res) => {
-  const id = req.body.id
+  const { userId , productId } = req.body
   CartUser.findOne({where:{
-    id : 2 //esto es el id del usuario
+    id : userId //esto es el id del usuario
   }})
   .then((cartUser)=>{
-    CartItem.findOne({ where: { productId: req.body.productId, userId: 1} }).then(
+    CartItem.findOne({ where: { productId: productId, userId: userId} }).then(
       (item) => {
         if (!item) {
           CartItem.create(req.body)
             .then((item) => {
-              console.log(item)
               cartUser.addCartItem(item.dataValues.id)
               res.sendStatus(201)
             })
