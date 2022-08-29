@@ -6,7 +6,7 @@ const {validateAuth} = require("../middleware/auth");
 const { register, login, validation, logout} = require("../controllers/auth");
 const { profile, changePassword, users, user, admin } = require("../controllers/users");
 
-router.put("/admin/:id", admin)
+router.put("/admin/:id", validateAuth, admin)
 
 router.post("/register", register) 
 
