@@ -14,6 +14,6 @@ router.use("/products", productsRouter);
 router.use("/cartItem", cartItemRouter);
 router.use("/cartUser", cartUserRouter);
 router.use("/cartHistory", cartHistoryRouter);
-//router.use("/checkout", checkoutRouter);
+router.use("/checkout", checkoutRouter);
 
 module.exports = router;
