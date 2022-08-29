@@ -21,7 +21,7 @@ products.put("/updateProduct/:id", updateProduct);
 
 products.delete("/deleteProduct/:id", deleteProduct);
 
-products.get("/getProducts/:categoria", getProducts);
+products.get("/getProducts", getProducts);
 
 products.get("/getProduct/:search", getProductSearch);
 

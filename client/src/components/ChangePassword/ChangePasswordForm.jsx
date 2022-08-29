@@ -92,9 +92,9 @@ export default function ProfileForm() {
           className="trailer"
         />
         {toggleMute ? (
-          <button className="relative upBtn text-white" onClick={handleMute}><FontAwesomeIcon className="relative" icon={faVolumeHigh}></FontAwesomeIcon></button>
+          <button className="relative upBtn text-white" onClick={handleMute}><FontAwesomeIcon className="relative" icon={faVolumeMute}></FontAwesomeIcon></button>
         ) : (
-            <button className="relative upBtn text-white" onClick={handleMute}><FontAwesomeIcon className="relative" icon={faVolumeMute}></FontAwesomeIcon></button>
+            <button className="relative upBtn text-white" onClick={handleMute}><FontAwesomeIcon className="relative" icon={faVolumeHigh}></FontAwesomeIcon></button>
         )}
       </Flex>
     </Stack>

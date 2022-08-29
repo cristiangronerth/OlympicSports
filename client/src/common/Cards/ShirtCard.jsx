@@ -2,13 +2,13 @@ import React from "react";
 import {
   Box,
   Center,
-  useColorModeValue,
   Heading,
   Text,
   Stack,
   Image,
 } from "@chakra-ui/react";
-const Card = (item) => {
+const Card = ({item}) => {
+
   return (
     <Center py={20} marginTop={20}>
       <Box
@@ -45,10 +45,10 @@ const Card = (item) => {
         >
           <Image
             rounded={"lg"}
-            height={230}
-            width={"60%"}
-            objectFit={"cover"}
-            src={item.item.img}
+            height={270}
+            width={"100%"}
+            objectFit={"contain"}
+            src={item.image}
             marginLeft={"auto"}
             marginRight={"auto"}
           />
@@ -58,11 +58,11 @@ const Card = (item) => {
             Brand
           </Text>
           <Heading fontSize={"2xl"} fontFamily={"body"} fontWeight={500}>
-            {item.item.name}
+            {item.name}
           </Heading>
           <Stack direction={"row"} align={"center"}>
             <Text fontWeight={800} fontSize={"xl"}>
-              {item.item.price}
+              {item.price}
             </Text>
 
             <button className=" bg-gray-800 text-xs text-white px-2 py-1 font-semibold rounded uppercase hover:bg-gray-700">

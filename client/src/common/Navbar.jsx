@@ -3,10 +3,26 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { getProfile, logoutRequest } from "../state/auth";
+import Cart from "../components/Cart/Cart"
+import "./Cart.css";
+
+import { Link as LinkButton } from "@chakra-ui/react"
+import axios from "axios";
+
 
 const Navbar = () => {
   const [search, setSearch] = useState(false);
   const [open, setOpen] = useState(false);
+  const [showCart, setShowCart] = useState("cart")
+  const [products,setProducts] = useState([]);
+
+  //CART
+  const showCartHandler = (e) => {
+    e.preventDefault();
+    setShowCart("cart cart-active")
+    axios.get(`/api/cartItem?userId=${user.id}`)
+      .then(res => setProducts(res.data))
+  };
 
   const searchingTrue = () => {
     setSearch(true);
@@ -25,7 +41,7 @@ const Navbar = () => {
 
   const user = useSelector((state) => state.auth);
   const dispatch = useDispatch();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(getProfile());
@@ -33,170 +49,183 @@ const Navbar = () => {
 
   const handleLogout = (e) => {
     e.preventDefault();
-    dispatch(logoutRequest())
-    navigate("/")
-  }
+    dispatch(logoutRequest());
+    navigate("/");
+  };
 
   return (
-    <nav>
-      <div className="shadow-md w-full fixed top-0 left-0 z-10">
-        <div className="md:flex items-center justify-between py-4 bg-[#fcf9ee] md:px-1 px-7 h-20">
-          <div className="font-bold text-1xl cursor-pointer flex items-center font-[Poppins] text-gray-800">
-            <div
-              onClick={() => setOpen(!open)}
-              className="text-3xl absolute right-8 top-6 cursor-pointer md:hidden"
-            >
-              <ion-icon name={open ? "close" : "menu"}></ion-icon>
+    <>
+      <nav>
+        <div className="shadow-md w-full fixed top-0 left-0 z-10">
+          <div className="md:flex items-center justify-between py-4 bg-[#fcf9ee] md:px-1 px-7 h-20">
+            <div className="font-bold text-1xl cursor-pointer flex items-center font-[Poppins] text-gray-800">
+              <div
+                onClick={() => setOpen(!open)}
+                className="text-3xl absolute right-8 top-6 cursor-pointer md:hidden"
+              >
+                <ion-icon name={open ? "close" : "menu"}></ion-icon>
+              </div>
+              <ul
+                className={`md:flex md:items-center md:pb-0 pb-12 absolute md:static md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in ${
+                  open ? "top-20" : "top-[-390px]"
+                } bg-[#fcf9ee] z-10`}
+              >
+                {open ? (
+                  <li className="md:ml-8  md:my-0 my-7">
+                    <form>
+                      <Input type="text" />
+                      <span className="text-1xl ml-2 ">
+                        <ion-icon name="search-outline"></ion-icon>
+                      </span>
+                    </form>
+                  </li>
+                ) : (
+                  ""
+                )}
+                {open ? (
+                  <Link to="/login">
+                    <li className="md:ml-8 text-1xl md:my-0 my-7">
+                      <Profile>PROFILE</Profile>
+                      <span className="ml-2">
+                        <ion-icon name="person-outline"></ion-icon>
+                      </span>
+                    </li>
+                  </Link>
+                ) : (
+                  ""
+                )}
+                {open ? (
+                  <li className="md:ml-8 text-1xl md:my-0 my-7">
+                    <LinkButton href="" onClick={showCartHandler}>
+                    <CartItem>CART</CartItem>
+                    <span className="ml-5">
+                      <ion-icon name="cart-outline" />
+                    </span>
+                    </LinkButton>
+                  </li>
+                ) : (
+                  ""
+                )}
+
+                {open ? (
+                  <Link to="/">
+                    <li className="md:ml-8 text-1xl md:my-0 my-7">
+                      <Home>HOME</Home>
+                      <span className="ml-4">
+                        <ion-icon name="home-outline"></ion-icon>
+                      </span>
+                    </li>
+                  </Link>
+                ) : (
+                  <Link to="/">
+                    <li className="md:ml-8 text-1xl md:my-0 my-7">HOME</li>
+                  </Link>
+                )}
+
+                {open ? (
+                  <li className="md:ml-8 text-1xl md:my-0 my-7">
+                    <Categorias>CATEGORIAS</Categorias>
+                    <span className="ml-5">
+                      <ion-icon name="bookmarks-outline" />
+                    </span>
+                  </li>
+                ) : (
+                  <li className="md:ml-8 text-1xl md:my-0 my-7">CATEGORIAS</li>
+                )}
+              </ul>
             </div>
+
+            <Link to="/">
+              <div className="font-bold text-3xl cursor-pointer items-center font-[Poppins] text-gray-800 md:hidden lg:flex">
+                <span className="text-2xl text-orange-600 mr-1 pt-2">
+                  <ion-icon name="basketball-outline" />
+                </span>
+                OlympicSports
+              </div>
+            </Link>
             <ul
               className={`md:flex md:items-center md:pb-0 pb-12 absolute md:static md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in ${
-                open ? "top-20" : "top-[-390px]"
-              } bg-[#fcf9ee] z-10`}
+                open ? "hidden" : "top-[-490px]"
+              } bg-[#fcf9ee] z-100`}
             >
-              {open ? (
-                <li className="md:ml-8  md:my-0 my-7">
-                  <form>
-                    <Input type="text" />
-                    <span className="text-1xl ml-2 ">
-                      <ion-icon name="search-outline"></ion-icon>
-                    </span>
-                  </form>
-                </li>
-              ) : (
-                ""
-              )}
-              {open ? (
-                <Link to="/login">
-                  <li className="md:ml-8 text-1xl md:my-0 my-7">
-                    <Profile>PROFILE</Profile>
-                    <span className="ml-2">
-                      <ion-icon name="person-outline"></ion-icon>
-                    </span>
-                  </li>
-                </Link>
-              ) : (
-                ""
-              )}
-              {open ? (
-                <li className="md:ml-8 text-1xl md:my-0 my-7">
-                  <Cart>CART</Cart>
-                  <span className="ml-5">
-                    <ion-icon name="cart-outline" />
-                  </span>
-                </li>
-              ) : (
-                ""
-              )}
+              <li className="md:ml-8 text-1xl md:my-0 my-7">
+                <span className="text-2xl mr-1 pt-2">
+                  <LinkButton href="" onClick={showCartHandler}><ion-icon name="cart-outline" /></LinkButton>
+                </span>
+              </li>
+              <li className="md:ml-8 text-1xl md:my-0 my-7">
+                <span className="text-2xl mr-1 pt-2 hover:cursor-pointer">
+                  <ion-icon onClick={togglePopUp} name="person-outline" />
 
-              {open ? (
-                <Link to="/">
-                  <li className="md:ml-8 text-1xl md:my-0 my-7">
-                    <Home>HOME</Home>
-                    <span className="ml-4">
-                      <ion-icon name="home-outline"></ion-icon>
-                    </span>
-                  </li>
-                </Link>
-              ) : (
-                <Link to="/">
-                  <li className="md:ml-8 text-1xl md:my-0 my-7">HOME</li>
-                </Link>
-              )}
+                  {user.id ? (
+                    <DropMenu activeState={popUp}>
+                      <div className="btn flex dropmenu">
+                        <Link className="ml-1" to="/profile">
+                          <label className="hover:cursor-pointer mx-6">
+                            PROFILE
+                          </label>
+                        </Link>
+                      </div>
 
-              {open ? (
-                <li className="md:ml-8 text-1xl md:my-0 my-7">
-                  <Categorias>CATEGORIAS</Categorias>
-                  <span className="ml-5">
-                    <ion-icon name="bookmarks-outline" />
-                  </span>
-                </li>
-              ) : (
-                <li className="md:ml-8 text-1xl md:my-0 my-7">CATEGORIAS</li>
-              )}
-            </ul>
-          </div>
-
-          <Link to="/">
-            <div className="font-bold text-3xl cursor-pointer items-center font-[Poppins] text-gray-800 md:hidden lg:flex">
-              <span className="text-2xl text-orange-600 mr-1 pt-2">
-                <ion-icon name="basketball-outline" />
-              </span>
-              OlympicSports
-            </div>
-          </Link>
-          <ul
-            className={`md:flex md:items-center md:pb-0 pb-12 absolute md:static md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in ${
-              open ? "hidden" : "top-[-490px]"
-            } bg-[#fcf9ee] z-100`}
-          >
-            <li className="md:ml-8 text-1xl md:my-0 my-7">
-              <span className="text-2xl mr-1 pt-2">
-                <ion-icon name="cart-outline" />
-              </span>
-            </li>
-            <li className="md:ml-8 text-1xl md:my-0 my-7">
-              <span className="text-2xl mr-1 pt-2 hover:cursor-pointer">
-                <ion-icon onClick={togglePopUp} name="person-outline" />
-
-                {user.id ? (
-                  <DropMenu activeState={popUp}>
-                    <div className="btn flex dropmenu">
-                      <Link className="ml-1" to="/profile">
-                        <label className="hover:cursor-pointer mx-6">
-                          PROFILE
-                        </label>
-                      </Link>
-                    </div>
-
-                    <div className="btn flex dropmenu">
-                        <label onClick={handleLogout} className="hover:cursor-pointer mx-6">
+                      <div className="btn flex dropmenu">
+                        <label
+                          onClick={handleLogout}
+                          className="hover:cursor-pointer mx-6"
+                        >
                           LOGOUT
                         </label>
-                    </div>
-                  </DropMenu>
-                ) : (
-                  <DropMenu activeState={popUp}>
-                    <div className="btn flex dropmenu">
-                      <Link className="ml-3" to="/login">
-                        <label className="hover:cursor-pointer mx-6">
-                          LOGIN
-                        </label>
-                      </Link>
-                    </div>
+                      </div>
+                    </DropMenu>
+                  ) : (
+                    <DropMenu activeState={popUp}>
+                      <div className="btn flex dropmenu">
+                        <Link className="ml-3" to="/login">
+                          <label className="hover:cursor-pointer mx-6">
+                            LOGIN
+                          </label>
+                        </Link>
+                      </div>
 
-                    <div className="btn flex dropmenu">
-                      <Link to="/register">
-                        <label className="hover:cursor-pointer mx-6">
-                          REGISTER
-                        </label>
-                      </Link>
-                    </div>
-                  </DropMenu>
-                )}
-              </span>
-            </li>
-            <li
-              className="md:ml-8 text-1xl md:my-0 my-7"
-              onClick={searchingTrue}
-              onMouseOut={searchingFalse}
-            >
-              {search ? (
-                <form>
-                  <span className="text-2xl mr-5 pt-10">
+                      <div className="btn flex dropmenu">
+                        <Link to="/register">
+                          <label className="hover:cursor-pointer mx-6">
+                            REGISTER
+                          </label>
+                        </Link>
+                      </div>
+                    </DropMenu>
+                  )}
+                </span>
+              </li>
+              <li
+                className="md:ml-8 text-1xl md:my-0 my-7"
+                onClick={searchingTrue}
+                onMouseOut={searchingFalse}
+              >
+                {search ? (
+                  <form>
+                    <span className="text-2xl mr-5 pt-10">
+                      <ion-icon name="search-outline" />
+                    </span>
+                    <Input type="text" />
+                  </form>
+                ) : (
+                  <span className="text-2xl mr-1 pt-2">
                     <ion-icon name="search-outline" />
                   </span>
-                  <Input type="text" />
-                </form>
-              ) : (
-                <span className="text-2xl mr-1 pt-2">
-                  <ion-icon name="search-outline" />
-                </span>
-              )}
-            </li>
-          </ul>
+                )}
+              </li>
+            </ul>
+          </div>
         </div>
+      </nav>
+
+      {/* CART */}
+
+      <div className={showCart}>
+        <Cart setShowCart={setShowCart} />
       </div>
-    </nav>
+    </>
   );
 };
 
@@ -257,7 +286,7 @@ const Profile = styled.span`
     margin-left: 30vw;
   }
 `;
-const Cart = styled.span`
+const CartItem = styled.span`
   margin-left: 41.5vw;
   @media screen and (max-width: 490px) {
     margin-left: 37.5vw;

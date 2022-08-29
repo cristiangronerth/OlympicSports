@@ -45,25 +45,11 @@ exports.createProduct = (req, res) => {
 };
 
 exports.getProduct = (req, res) => {
-  const {
-    name,
-    image,
-    color,
-    description,
-    size,
-    brand,
-    price,
-    stock,
-    categoria,
-  } = req.body;
+  const { productId } = req.query;
 
   Product.findAll({
     where: {
-      name,
-      color,
-      size,
-      brand,
-      categoria,
+      id : productId
     },
   })
     .then((product) => res.send(product))
@@ -91,9 +77,12 @@ exports.deleteProduct = (req, res) => {
 };
 
 exports.getProducts = (req, res) => {
+
+  const { categoria } = req.query
+
   Product.findAll({
     where: {
-      categoria: req.params.categoria,
+      categoria: categoria
     },
   })
     .then((productos) => res.send(productos))
