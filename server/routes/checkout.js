@@ -1,5 +1,4 @@
 const express = require("express");
-const { where } = require("sequelize/types");
 const { Product, CartItem } = require("../models");
 
 const nodemailer = require("nodemailer");
