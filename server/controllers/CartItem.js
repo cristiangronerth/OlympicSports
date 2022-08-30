@@ -33,11 +33,11 @@ exports.CreateCartItem = (req, res) => {
   .then((cartUser)=>{
     CartItem.findOne({ where: { productId: productId, userId: userId} }).then(
       (item) => {
-        if (!item) {
+        if (!item) {  
           CartItem.create(req.body)
             .then((item) => {
               cartUser.addCartItem(item.dataValues.id)
-              res.sendStatus(201)
+              
             })
             .catch((error) => {
               console.log("Error to create item", error);

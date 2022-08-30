@@ -3,33 +3,24 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { getProfile, logoutRequest } from "../state/auth";
-import Cart from "../components/Cart/Cart"
+import Cart from "../components/Cart/Cart";
 import "./Cart.css";
 
-import { Link as LinkButton } from "@chakra-ui/react"
+import { Link as LinkButton } from "@chakra-ui/react";
 import axios from "axios";
 
-
 const Navbar = () => {
-  const [search, setSearch] = useState(false);
   const [open, setOpen] = useState(false);
-  const [showCart, setShowCart] = useState("cart")
-  const [products,setProducts] = useState([]);
+  const [showCart, setShowCart] = useState("cart");
+  const [products, setProducts] = useState("");
 
   //CART
   const showCartHandler = (e) => {
     e.preventDefault();
-    setShowCart("cart cart-active")
-    axios.get(`/api/cartItem?userId=${user.id}`)
-      .then(res => setProducts(res.data))
-  };
-
-  const searchingTrue = () => {
-    setSearch(true);
-  };
-
-  const searchingFalse = () => {
-    setSearch(false);
+    setShowCart("cart cart-active");
+    axios
+      .get(`/api/cartItem?userId=${user.id}`)
+      .then((res) => setProducts(res.data));
   };
 
   //popup
@@ -71,14 +62,14 @@ const Navbar = () => {
                 } bg-[#fcf9ee] z-10`}
               >
                 {open ? (
-                  <li className="md:ml-8  md:my-0 my-7">
-                    <form>
-                      <Input type="text" />
+                  <Link to={"/search"}>
+                    <li className="md:ml-8  md:my-0 my-7">
+                      <Search>SEARCH</Search>
                       <span className="text-1xl ml-2 ">
                         <ion-icon name="search-outline"></ion-icon>
                       </span>
-                    </form>
-                  </li>
+                    </li>
+                  </Link>
                 ) : (
                   ""
                 )}
@@ -97,10 +88,10 @@ const Navbar = () => {
                 {open ? (
                   <li className="md:ml-8 text-1xl md:my-0 my-7">
                     <LinkButton href="" onClick={showCartHandler}>
-                    <CartItem>CART</CartItem>
-                    <span className="ml-5">
-                      <ion-icon name="cart-outline" />
-                    </span>
+                      <CartItem>CART</CartItem>
+                      <span className="ml-5">
+                        <ion-icon name="cart-outline" />
+                      </span>
                     </LinkButton>
                   </li>
                 ) : (
@@ -150,7 +141,9 @@ const Navbar = () => {
             >
               <li className="md:ml-8 text-1xl md:my-0 my-7">
                 <span className="text-2xl mr-1 pt-2">
-                  <LinkButton href="" onClick={showCartHandler}><ion-icon name="cart-outline" /></LinkButton>
+                  <LinkButton href="" onClick={showCartHandler}>
+                    <ion-icon name="cart-outline" />
+                  </LinkButton>
                 </span>
               </li>
               <li className="md:ml-8 text-1xl md:my-0 my-7">
@@ -197,23 +190,12 @@ const Navbar = () => {
                   )}
                 </span>
               </li>
-              <li
-                className="md:ml-8 text-1xl md:my-0 my-7"
-                onClick={searchingTrue}
-                onMouseOut={searchingFalse}
-              >
-                {search ? (
-                  <form>
-                    <span className="text-2xl mr-5 pt-10">
-                      <ion-icon name="search-outline" />
-                    </span>
-                    <Input type="text" />
-                  </form>
-                ) : (
-                  <span className="text-2xl mr-1 pt-2">
+              <li className="md:ml-8 text-1xl md:my-0 my-7">
+                <span className="text-2xl mr-5 pt-10">
+                  <Link to="/search">
                     <ion-icon name="search-outline" />
-                  </span>
-                )}
+                  </Link>
+                </span>
               </li>
             </ul>
           </div>
@@ -249,34 +231,15 @@ const DropMenu = styled.div`
   right: 0.5rem;
 `;
 
-const Input = styled.input`
-  font-size: 20px;
-  border: 1px solid black;
-  border-radius: 12px;
-  height: 29px;
-  background-color: #fcf9ee;
-  text-align: center;
-  &::placeholder {
-    color: #000;
-    background-color: #fcf9ee;
-  }
-  @media screen and (max-width: 768px) {
-    margin-left: 30vw;
-  }
-  @media screen and (max-width: 570px) {
-    margin-left: 23vw;
-  }
+const Search = styled.span`
+  margin-left: 40vw;
   @media screen and (max-width: 490px) {
-    margin-left: 20vw;
+    margin-left: 35vw;
   }
   @media screen and (max-width: 450px) {
-    margin-left: 15vw;
-  }
-  @media screen and (max-width: 410px) {
-    margin-left: 5vw;
+    margin-left: 30vw;
   }
 `;
-
 const Profile = styled.span`
   margin-left: 40vw;
   @media screen and (max-width: 490px) {
