@@ -19,6 +19,15 @@ export const getProduct = createAsyncThunk("GET_PRODUCT", async ({setProduct,pro
     }
 })
 
+export const getProduct2 = createAsyncThunk("GET_PRODUCT", async (productId) => {
+    try {
+        const res = await axios.get(`/api/products/getProduct?productId=${productId}`)
+        return res.data
+    } catch (err) {
+        return err.message
+    }
+})
+
 const productReducer = createReducer(
     {},
     {

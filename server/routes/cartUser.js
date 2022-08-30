@@ -1,14 +1,15 @@
 const express = require("express");
+const { validateAuth } = require("../middleware/auth");
 const { CartItem, CartUser } = require("../models");
 const router = express.Router();
 
+router.get("/",validateAuth,(req,res)=> {
 
+    const { id } = req.user
 
-
-router.get("/",(req,res)=> {
     CartItem.findAll({
         where:{
-            userId: 2
+            userId: id
         }
     })
     .then((items)=> {
@@ -25,20 +26,21 @@ router.get("/",(req,res)=> {
         for(let i = 0; i < preciosYcantidad[0].length; i++) {
             total.push(preciosYcantidad[0][i]*preciosYcantidad[1][i])
         }
+        
         const final = total.reduce((a,b)=>a+b)
         return final
     })
     .then((final)=>{
         CartUser.findOne({
             where: {
-                userId: 2
+                userId: id
             }
         })
         .then((cartUser)=>{
             cartUser.update({total:final})
+             .then((updated) => res.send(updated.total))
         })
     })
-    .then(()=>res.sendStatus(202))
 })
 
 

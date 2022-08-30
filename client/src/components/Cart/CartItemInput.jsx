@@ -12,16 +12,17 @@ import {
 import styled from "styled-components";
 
 import { useDispatch } from "react-redux";
-import { deleteItem } from "../../state/cartItem";
+import { deleteItem, getCartItems } from "../../state/cartItem";
 
-function CartItemInput({quantity, cartItemId}) {
+function CartItemInput({quantity, cartItemId, setCartItems}) {
 
   const dispatch = useDispatch()
 
-  const DeleteItem = (e) => {
+  const DeleteItem = async (e) => {
     e.preventDefault();
-    dispatch(deleteItem(cartItemId))
-  }
+    const addCartItems = await dispatch(deleteItem(cartItemId))
+    const getCartItem = await dispatch(getCartItems(setCartItems));
+  };
 
   return (
     <>

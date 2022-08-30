@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 import CartItemInput from "./CartItemInput";
 import { getCartItemProducts } from "../../state/cartItem";
 
-function CartItem({ productId }) {
+function CartItem({ productId , setCartItemsDelete }) {
 
   const [products, setProducts] = useState([]);
   const dispatch = useDispatch();
@@ -28,7 +28,7 @@ function CartItem({ productId }) {
               <p>Size: {product.product.size}</p>
             </CartItemProductDetails>
             <ProductSummary>
-              <CartItemInput quantity={product.quantity} cartItemId={product.id} />
+              <CartItemInput quantity={product.quantity} cartItemId={product.id} setCartItems={setCartItemsDelete} />
             </ProductSummary>
           </CartProductItem>
           <Divider />

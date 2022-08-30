@@ -1,10 +1,10 @@
 const express = require("express");
-const { where } = require("sequelize/types");
 const { Product, CartItem } = require("../models");
 
 const nodemailer = require("nodemailer");
 
 const User = require("../models/User");
+const { validateAuth } = require("../middleware/auth");
 const router = express.Router();
 
 const transporter = nodemailer.createTransport({
@@ -27,11 +27,11 @@ router.get("/", (req, res) => {
   });
 });
 
-router.delete("/", (req,res)=> {
-    const { userId } = req.body;
+router.delete("/", validateAuth, (req,res) => {
+    const { id } = req.user;
     CartItem.destroy({
         where:{
-            userId : userId
+            userId : id
         }
     })
     .then(() => res.sendStatus(204))

@@ -2,6 +2,7 @@ import React from "react";
 import { Routes, Route } from "react-router-dom"
 import Cart from "./components/Cart/Cart";
 import ChangePassword from "./pages/ChangePassword";
+import Checkout from "./pages/Checkout";
 
 import Home from "./pages/Home";
 import Login from "./pages/Login";
@@ -22,6 +23,7 @@ function App() {
       <Route path="/product/:id" element={<ProductDetails/>}/>
       <Route path="/cart" element={<Cart/>}/>
       <Route path="/shirts" element={<Shirts/>}/>
+      <Route path="/checkout" element={<Checkout/>} />
     </Routes> 
 
   )
