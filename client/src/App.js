@@ -2,6 +2,7 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Cart from "./components/Cart/Cart";
 import ChangePassword from "./pages/ChangePassword";
+import Checkout from "./pages/Checkout";
 
 import Home from "./pages/Home";
 import Login from "./pages/Login";
@@ -31,8 +32,10 @@ function App() {
       <Route path="/shoes" element={<Shoes />} />
       <Route path="/accesories" element={<Accesories />} />
       <Route path="/search" element={<SearchProducts />} />
+      <Route path="/checkout" element={<Checkout/>} />
     </Routes>
   );
+
 }
 
 export default App;

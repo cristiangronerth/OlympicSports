@@ -11,6 +11,15 @@ export const getCartItems = createAsyncThunk("GET_ALL_CARTITEMS", async (setCart
     }
 })
 
+export const getCartItems2 = createAsyncThunk("GET_ALL_CARTITEMS", async () => {
+    try {
+        const res = await axios.get(`/api/cartItem`)
+        return res.data
+    } catch (err) {
+        return err.message
+    }
+})
+
 export const getCartItemProducts = createAsyncThunk("GET_CARTITEMS_PRODUCTS", async ({setProducts,productId}) => {
     try {
         const res = await axios.get(`/api/cartItem/cartItems?productId=${productId}`)
@@ -21,9 +30,11 @@ export const getCartItemProducts = createAsyncThunk("GET_CARTITEMS_PRODUCTS", as
     }
 })
 
-export const addCartItem = createAsyncThunk("ADD_ITEM", async ({userId,productId}) => {
+
+export const addCartItem = createAsyncThunk("ADD_ITEM", async ({userId,productId,price}) => {
     try {
-        const res = await axios.post("/api/cartItem/", {userId , productId})
+        const res = await axios.post("/api/cartItem/", {userId , productId, price})
+        console.log(res.data)
         return res.data
     } catch (err) {
         return err.message
@@ -32,8 +43,7 @@ export const addCartItem = createAsyncThunk("ADD_ITEM", async ({userId,productId
 
 export const deleteItem = createAsyncThunk("DELETE_ITEM", async (cartItemId) => {
     try {
-        const res = await axios.delete(`api/cartItem/${cartItemId}`)
-        // const res = await axios.delete(`http://localhost:8080/api/cartItem/${cartItemId}`)
+        const res = await axios.delete(`/api/cartItem/${cartItemId}`)
         return res.data
     } catch (err) {
         return err.message

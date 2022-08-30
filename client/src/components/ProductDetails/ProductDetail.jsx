@@ -23,7 +23,7 @@ import { useParams } from "react-router";
 import { useDispatch, useSelector } from "react-redux"
 import { getProduct } from "../../state/products";
 import { getProfile } from "../../state/auth";
-import { addCartItem } from "../../state/cartItem";
+import { addCartItem, getCartItems } from "../../state/cartItem";
 
 function ProductDetail() {
   const [showCart, setShowCart] = useState("cart");
@@ -34,21 +34,25 @@ function ProductDetail() {
   const user = useSelector(state => state.auth)
 
   const [product, setProduct] = useState([]);
+  const [cartItems,setCartItems] = useState([]);
 
   useEffect(() => {
-    dispatch(getProduct({setProduct,productId}))
-  }, []);
+    const fetchData = async () => {
+      const getProducts = dispatch(getProduct({setProduct,productId}))
+      const getMyProfile = dispatch(getProfile())
+      Promise.all([getProducts,getMyProfile])
+    }
 
-  useEffect(() => {
-    dispatch(getProfile())
-  }, []);
+    fetchData()
+  },[])
 
-  const addToCartHandler = (e) => {
+  const addToCartHandler = async (e) => {
     e.preventDefault();
-    setShowCart("cart cart-active");
-    dispatch(addCartItem({userId : user.id , productId : product[0].id}))
+    const addCartItems = await dispatch(addCartItem({userId : user.id , productId : product[0].id, price: product[0].price}))
+    const getCartItem = await dispatch(getCartItems(setCartItems));
+    const showCart = await setShowCart("cart cart-active")
   };
-
+  
 
   return (
     <>
@@ -166,7 +170,7 @@ function ProductDetail() {
       {/* CART */}
 
       <div className={showCart}>
-        <Cart setShowCart={setShowCart} />
+        <Cart setShowCart={setShowCart} cartItems={cartItems} setCartItemsDelete={setCartItems} />
       </div>
     </>
   );

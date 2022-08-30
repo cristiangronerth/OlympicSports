@@ -78,6 +78,15 @@ export const getProduct = createAsyncThunk(
   }
 );
 
+export const getProduct2 = createAsyncThunk("GET_PRODUCT", async (productId) => {
+    try {
+        const res = await axios.get(`/api/products/getProduct?productId=${productId}`)
+        return res.data
+    } catch (err) {
+        return err.message
+    }
+})
+
 export const getSearchProduct = createAsyncThunk(
   "GET_SEARCHPRODUCT",
   async ({ setItems , searchValue}) => {

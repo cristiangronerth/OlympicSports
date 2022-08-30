@@ -6,14 +6,14 @@ import { useEffect, useState } from "react";
 import { getCartItems } from "../../state/cartItem";
 
 
-function Cart({setShowCart}) {
+function Cart({setShowCart, cartItems, setCartItemsDelete}) {
 
   const hideCartHandler = (e) => {
     e.preventDefault()
     setShowCart("cart")
   }
 
-  const [cartItems,setCartItems] = useState([]);
+  const [cartItems2,setCartItems] = useState([]);
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -23,9 +23,11 @@ function Cart({setShowCart}) {
   return (
     <>
       <CartHeader hideCartHandler={hideCartHandler}/>
-      {cartItems.map((item,i) => (
-        <CartItem key={i} productId={item.productId}/>
-      ))}
+      {cartItems ? cartItems.map((item,i) => (
+        <CartItem key={i} productId={item.productId} setCartItemsDelete={setCartItemsDelete}/>
+      )) : (cartItems2.map((item,i) => (
+        <CartItem key={i} productId={item.productId} setCartItemsDelete={setCartItemsDelete}/>
+      )))}
       <CartSummary/>
     </>
   );

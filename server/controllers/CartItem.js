@@ -44,7 +44,6 @@ exports.CreateCartItem = (req, res) => {
             });
         } else {
           item.update({ quantity: item.quantity + 1 });
-          
         }
       }
     );

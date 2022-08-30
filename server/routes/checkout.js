@@ -3,7 +3,6 @@ const { CartItem } = require("../models");
 const User = require("../models/User");
 const router = express.Router();
 
-
 const nodemailer = require("nodemailer");
 const {google} = require("googleapis");
 const OAuth2 = google.auth.OAuth2;
@@ -61,11 +60,11 @@ router.get("/", (req, res) => {
   .then((user)=> res.status(204).send(user))
 });
 
-router.delete("/", (req,res)=> {
-    const { userId } = req.body;
+router.delete("/", validateAuth, (req,res) => {
+    const { id } = req.user;
     CartItem.destroy({
         where:{
-            userId : userId
+            userId : id
         }
     })
     .then(()=>sendMail()
