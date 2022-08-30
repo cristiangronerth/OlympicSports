@@ -1,32 +1,32 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-
 
 import Card from "../../common/Card";
 import { SimpleGrid } from "@chakra-ui/react";
-import { getAllShirts } from "../../state/products";
+import { getAllShorts } from "../../state/products";
 import { getCartItems } from "../../state/cartItem";
 
 export default function ShirtsCategory() {
-  
-  const [shirts,setShirts] = useState([]);
+  const [shorts, setShorts] = useState([]);
 
-  const dispatch = useDispatch()
-
-  useEffect(() => {
-    dispatch(getAllShirts(setShirts))
-  },[])
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getCartItems())
-  },[])
+    dispatch(getAllShorts(setShorts));
+  }, []);
+
+  useEffect(() => {
+    dispatch(getCartItems());
+  }, []);
 
   return (
     <>
       <SimpleGrid minChildWidth="500px" spacing="30px">
-        {shirts.map((item, i) => (
-          <Link key={i} to={`/product/${item.id}`}><Card item={item} /></Link>
+        {shorts.map((item, i) => (
+          <Link key={i} to={`/product/${item.id}`}>
+            <Card item={item} />
+          </Link>
         ))}
       </SimpleGrid>
     </>

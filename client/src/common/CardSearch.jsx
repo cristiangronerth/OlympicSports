@@ -7,7 +7,7 @@ import {
   Stack,
   Image,
 } from "@chakra-ui/react";
-const Card = ({item}) => {
+const ShearchCard = ({item}) => {
 
   return (
     <Center py={20} marginTop={20}>
@@ -75,4 +75,4 @@ const Card = ({item}) => {
   );
 };
 
-export default Card;
+export default ShearchCard;
