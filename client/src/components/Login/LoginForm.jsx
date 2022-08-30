@@ -58,6 +58,9 @@ function LoginForm() {
               <button className="font-Avenir font-bold pt-5 text-md" style={{letterSpacing:"2px"}}>SIGN IN</button>
               <Link to="/register" className="font-Avenir text-sm text-center hover:no-underline">Create account</Link>
             </Stack>
+            <Stack>
+              <button className="font-Avenir font-bold pt-5 text-md" style={{letterSpacing:"2px"}}> Continue as Admin</button>
+            </Stack>
           </Stack>
         </Box>
       </Stack>
