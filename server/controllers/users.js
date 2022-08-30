@@ -49,3 +49,17 @@ exports.user = (req, res) => {
   .then((user) => res.send(user));
 
 };
+
+
+
+
+// dar admin a otro -no
+exports.darNewAdmin = (req, res) => {
+  const { id } = req.user
+  const newAdmin = Users.update(
+    { admin: true},
+    {where: { id }}
+  );
+  res.status(201).send(newAdmin)
+  //res.status(201).send("usuario promovido a administrador.")
+}
