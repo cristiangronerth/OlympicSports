@@ -1,4 +1,4 @@
-const { Product } = require("../models/");
+const { Product, CartItem } = require("../models/");
 const { Op } = require("sequelize");
 
 exports.createProduct = (req, res) => {
@@ -49,7 +49,7 @@ exports.getProduct = (req, res) => {
 
   Product.findAll({
     where: {
-      id : productId
+      id: productId,
     },
   })
     .then((product) => res.send(product))
@@ -77,12 +77,11 @@ exports.deleteProduct = (req, res) => {
 };
 
 exports.getProducts = (req, res) => {
-
-  const { categoria } = req.query
+  const { categoria } = req.query;
 
   Product.findAll({
     where: {
-      categoria: categoria
+      categoria: categoria,
     },
   })
     .then((productos) => res.send(productos))
@@ -104,4 +103,23 @@ exports.getProductSearch = (req, res) => {
   })
     .then((product) => res.send(product))
     .catch((err) => console.log(err));
+};
+
+exports.getProductByIdUser = (req, res) => {
+  CartItem.findAll({ where: { userId: 1 } })
+  .then((cartItems) => {
+    const product =[]
+    for (let i = 0; i < cartItems.length; i++) {
+      const obtenerData = async () => {
+        const response = Product.findByPk(cartItems[i].dataValues.productId)
+        const data = await response
+       
+      
+    }
+    
+   product.push(obtenerData()) 
+     }
+    console.log(product);
+  })
+  .then(resul => console.log(resul))
 };

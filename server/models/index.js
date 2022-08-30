@@ -3,6 +3,7 @@ const Product = require("../models/Product")
 const CartUser = require("../models/CartUser")
 const CartItem = require("../models/CartItem")
 const CartHistory = require("../models/CartHistory")
+const Category = require("./Category")
 
 
 //CartItem.hasMany(Product)
@@ -13,6 +14,7 @@ CartItem.belongsTo(Product)
 CartHistory.belongsTo(User)
 CartHistory.hasMany(CartUser)
 CartItem.belongsTo(User)
+Product.belongsTo(Category)
 
 
 
