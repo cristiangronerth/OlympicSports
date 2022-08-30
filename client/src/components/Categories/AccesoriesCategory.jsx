@@ -5,17 +5,17 @@ import { useDispatch } from "react-redux";
 
 import Card from "../../common/Card";
 import { SimpleGrid } from "@chakra-ui/react";
-import { getAllShirts } from "../../state/products";
+import { getAllAccesories } from "../../state/products";
 import { getCartItems } from "../../state/cartItem";
 
-export default function ShirtsCategory() {
+export default function AccesoriesCategory() {
   
-  const [shirts,setShirts] = useState([]);
+  const [accesories,setAccesories] = useState([]);
 
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(getAllShirts(setShirts))
+    dispatch(getAllAccesories(setAccesories))
   },[])
 
   useEffect(() => {
@@ -25,7 +25,7 @@ export default function ShirtsCategory() {
   return (
     <>
       <SimpleGrid minChildWidth="500px" spacing="30px">
-        {shirts.map((item, i) => (
+        {accesories.map((item, i) => (
           <Link key={i} to={`/product/${item.id}`}><Card item={item} /></Link>
         ))}
       </SimpleGrid>

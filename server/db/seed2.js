@@ -36,12 +36,12 @@ Product.bulkCreate([
     image2:"https://http2.mlstatic.com/D_NQ_NP_2X_867965-MLA49401593418_032022-F.webp",
     image3:"https://http2.mlstatic.com/D_NQ_NP_2X_634040-MLA49401593419_032022-F.webp",
     color: "Black",
-    description:"Made from soft French terry fabric, the Nike Sportswear Shorts feature a curved hem for chic summer style.",
+    description:"Made from soft French terry fabric, the Nike Sportswear Short feature a curved hem for chic summer style.",
     size: "M",
     brand: "Nike",
     price: 35,
     stock: 11,
-    categoria: "shorts"
+    categoria: "short"
   },
   {
     name: "Short Swoosh Run",
@@ -50,12 +50,12 @@ Product.bulkCreate([
     image2:"https://http2.mlstatic.com/D_NQ_NP_2X_988410-MLA49912246088_052022-F.webp",
     image3:"https://http2.mlstatic.com/D_NQ_NP_2X_988410-MLA49912246088_052022-F.webp",
     color: "Black",
-    description:"Put in the miles in smooth comfort in the Nike Dri-FIT Swoosh Run Shorts. Mesh on the sides and a breathable waistband help keep you cool with every mile. Made with at least 75% recycled polyester fibers, they're all about feeling good as you rep the Double Swoosh.",
+    description:"Put in the miles in smooth comfort in the Nike Dri-FIT Swoosh Run Short. Mesh on the sides and a breathable waistband help keep you cool with every mile. Made with at least 75% recycled polyester fibers, they're all about feeling good as you rep the Double Swoosh.",
     size: "M",
     brand: "Nike",
     price: 39,
     stock: 4,
-    categoria: "shorts"
+    categoria: "short"
   },
   {
     name: "Short Df Challenger",
@@ -64,12 +64,12 @@ Product.bulkCreate([
     image2:"https://http2.mlstatic.com/D_NQ_NP_2X_882873-MLA49911963966_052022-F.webp",
     image3:"https://http2.mlstatic.com/D_NQ_NP_2X_965924-MLA49911963969_052022-F.webp",
     color: "Black",
-    description:"The iconic Nike Challenger 2-in-1 Shorts deliver knitted comfort with all-new articulated inner tights. They offer the versatility you want from your favorite shorts. This product is made with at least 75% recycled polyester fibers.",
+    description:"The iconic Nike Challenger 2-in-1 Short deliver knitted comfort with all-new articulated inner tights. They offer the versatility you want from your favorite short. This product is made with at least 75% recycled polyester fibers.",
     size: "M",
     brand: "Nike",
     price: 42,
     stock: 7,
-    categoria: "shorts"
+    categoria: "short"
   },
   {
     name: "Short Icon Clash Tempo",
@@ -78,12 +78,12 @@ Product.bulkCreate([
     image2:"https://http2.mlstatic.com/D_NQ_NP_2X_683326-MLA49678824282_042022-F.webp",
     image3:"https://http2.mlstatic.com/D_NQ_NP_2X_977537-MLA49678824284_042022-F.webp",
     color: "White",
-    description:"Inspiration for your run comes from the sky in the Nike Tempo Luxe Icon Clash Shorts. An all-over sky-inspired graphic encourages the dreamer in you. The two-layer design maintains comfort and provides easy storage. access.",
+    description:"Inspiration for your run comes from the sky in the Nike Tempo Luxe Icon Clash Short. An all-over sky-inspired graphic encourages the dreamer in you. The two-layer design maintains comfort and provides easy storage. access.",
     size: "XL",
     brand: "Nike",
     price: 45,
     stock: 5,
-    categoria: "shorts"
+    categoria: "short"
   },
   {
     name: "Short Run Division Flex",
@@ -92,12 +92,12 @@ Product.bulkCreate([
     image2:"https://http2.mlstatic.com/D_NQ_NP_2X_669131-MLA49912481086_052022-F.webp",
     image3:"https://http2.mlstatic.com/D_NQ_NP_2X_613340-MLA49912481085_052022-F.webp",
     color: "Green",
-    description:"Designed to run fast and kick back, the Nike Dri-FIT Flex Stride Run Division Shorts have you covered any day in a design made with at least 75% recycled polyester fibers. Soft, lightweight fabric has extra breathability at the back and a pocket to store your phone. Built-in inner lining feels stretchy and supportive.",
+    description:"Designed to run fast and kick back, the Nike Dri-FIT Flex Stride Run Division Short have you covered any day in a design made with at least 75% recycled polyester fibers. Soft, lightweight fabric has extra breathability at the back and a pocket to store your phone. Built-in inner lining feels stretchy and supportive.",
     size: "L",
     brand: "Nike",
     price: 50,
     stock: 3,
-    categoria: "shorts"
+    categoria: "short"
   },
   {
     name: "Short Run It",
@@ -106,12 +106,12 @@ Product.bulkCreate([
     image2: "https://http2.mlstatic.com/D_NQ_NP_2X_753879-MLA49933458593_052022-F.webp",
     image3: "https://http2.mlstatic.com/D_NQ_NP_2X_713232-MLA45695123477_042021-F.webp",
     color: "Black",
-    description:"Wear these adidas running shorts for any type of activity. When it comes to comfort, they tick all the boxes: They feature AEROREADY technology that manages moisture, ease of movement, and a built-in inner brief. Plus, they have 360 ​​degrees of reflectivity for running in low light.",
+    description:"Wear these adidas running short for any type of activity. When it comes to comfort, they tick all the boxes: They feature AEROREADY technology that manages moisture, ease of movement, and a built-in inner brief. Plus, they have 360 ​​degrees of reflectivity for running in low light.",
     size: "M",
     brand: "Adidas",
     price: 48,
     stock: 6,
-    categoria: "shorts"
+    categoria: "short"
   },
   {
     name: "Short Air Df",
@@ -120,12 +120,12 @@ Product.bulkCreate([
     image2: "https://http2.mlstatic.com/D_NQ_NP_2X_821677-MLA49695619574_042022-F.webp",
     image3: "https://http2.mlstatic.com/D_NQ_NP_2X_782241-MLA49695619572_042022-F.webp",
     color: "Black",
-    description:"Enjoy a soft, lightweight feel that keeps you comfortable in any season. The Nike Air Dri-FIT Essential Shorts feel breathable and sweat-wicking to help keep you cool and dry. They are made with at least 75% recycled polyester fibers.",
+    description:"Enjoy a soft, lightweight feel that keeps you comfortable in any season. The Nike Air Dri-FIT Essential Short feel breathable and sweat-wicking to help keep you cool and dry. They are made with at least 75% recycled polyester fibers.",
     size: "M",
     brand: "Nike",
     price: 45,
     stock: 14,
-    categoria: "shorts"
+    categoria: "short"
   },
   {
     name: "Calza Epic Fast",
@@ -139,7 +139,7 @@ Product.bulkCreate([
     brand: "Nike",
     price: 38,
     stock: 17,
-    categoria: "shorts"
+    categoria: "pants"
   },
   {
     name: "Short Play Up",
@@ -148,12 +148,12 @@ Product.bulkCreate([
     image2: "https://http2.mlstatic.com/D_NQ_NP_2X_986304-MLA49469951405_032022-F.webp",
     image3: "https://http2.mlstatic.com/D_NQ_NP_2X_796157-MLA49469951402_032022-F.webp",
     color: "Orange",
-    description:"We all need reliable shorts. Thanks to side hand pockets and a smooth, soft waistband, these are. You'll love the look, but even more the feel.Loose: Full cut for total comfort. Soft, lightweight knit construction provides superior comfort and breathability. The material absorbs sweat and dries very quickly. The finish will not snag or cake for added durability. Anti-odor technology prevents the growth of odor-causing microbes Updated exposed elastic waistband with print Comfort side hand pockets Curved hem creates a more flattering silhouette.",
+    description:"We all need reliable short. Thanks to side hand pockets and a smooth, soft waistband, these are. You'll love the look, but even more the feel.Loose: Full cut for total comfort. Soft, lightweight knit construction provides superior comfort and breathability. The material absorbs sweat and dries very quickly. The finish will not snag or cake for added durability. Anti-odor technology prevents the growth of odor-causing microbes Updated exposed elastic waistband with print Comfort side hand pockets Curved hem creates a more flattering silhouette.",
     size: "M",
     brand: "Under Armour",
     price: 32,
     stock: 8,
-    categoria: "shorts"
+    categoria: "short"
   },
   {
     name: "Camiseta Liverpool FC Strike",
@@ -167,6 +167,20 @@ Product.bulkCreate([
     brand: "Nike",
     price: 45,
     stock: 21,
+    categoria: "shirts"
+  },
+  {
+    name: "CAMISETA TITULAR ARGENTINA 22 MESSI",
+    image:"https://imgur.com/nOgvEGb.png",
+    image1:"https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/d88ae2138faf49be8f74aeca012c62eb_9366/Camiseta_Titular_Argentina_22_Messi_Blanco_HL8425_01_laydown.jpg",
+    image2:"https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/2c9a5c4a4eac470b8ecfaeca012c625d_9366/Camiseta_Titular_Argentina_22_Messi_Blanco_HL8425_02_laydown_hover.jpg",
+    image3:"https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/686f0d68e7bf407c9e1faeca012c5fd2_9366/Camiseta_Titular_Argentina_22_Messi_Blanco_HL8425_41_detail.jpg",
+    color: "ligthblue",
+    description:"100% Argentinian. Designed for fans, it offers comfort at all times thanks to its soft fabric with AEROREADY wicking technology. Details on the inside back neck are inspired by the national flag that players so proudly represent.",
+    size: "XS",
+    brand: "Adidas",
+    price: 144.61,
+    stock: 10,
     categoria: "shirts"
   },
   {
@@ -198,6 +212,20 @@ Product.bulkCreate([
     categoria: "shirts"
   },
   {
+    name: "Camiseta titular boca juniors",
+    image:"https://imgur.com/XMdO1az.png",
+    image1:"https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/bfe57f2c696b4724a58baeec01689b53_9366/Camiseta_Titular_Oficial_Boca_Juniors_22-23_Azul_HE6329_01_laydown.jpg",
+    image2:"https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/9c0a9b43643f4b4db0c3aeec01689b24_9366/Camiseta_Titular_Oficial_Boca_Juniors_22-23_Azul_HE6329_02_laydown_hover.jpg",
+    image3:"https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/d5b3ca01d89445379b4aaeec01689ad6_9366/Camiseta_Titular_Oficial_Boca_Juniors_22-23_Azul_HE6329_41_detail.jpg",
+    color: "blue",
+    description:"",
+    size: "xl",
+    brand: "adidas",
+    price: 38,
+    stock: 26,
+    categoria: "shirts"
+  },
+  {
     name: "Camiseta Racing Club Kombat",
     image:"https://imgur.com/PB4iWRg.png",
     image1:"https://http2.mlstatic.com/D_NQ_NP_2X_759545-MLA47298450444_082021-F.webp",
@@ -207,6 +235,20 @@ Product.bulkCreate([
     description:"Kombat Goalkeeper Racing Club 2021 Goalkeeper T-shirt.Kombat technology, registered by the KAPPA brand to optimize high-competition performance, based on lightness, elasticity and fair perspiration evaporation.The SLIM cut adapts to your body being ideal for exercises high perfomance.",
     size: "L",
     brand: "Kappa",
+    price: 35,
+    stock: 14,
+    categoria: "shirts"
+  },
+  {
+    name: "Estudiantes",
+    image:"https://imgur.com/K4lDNr5.png",
+    image1:"https://http2.mlstatic.com/D_NQ_NP_2X_656285-MLA45725668123_042021-F.webp",
+    image2: "https://http2.mlstatic.com/D_NQ_NP_954989-MLA45725668124_042021-O.webp",
+    image3: "https://http2.mlstatic.com/D_NQ_NP_2X_726623-MLA45725668125_042021-F.webp",
+    color: "Red",
+    description:"camiseta de Estudiantes de la plata",
+    size: "L",
+    brand: "Under Armour ",
     price: 35,
     stock: 14,
     categoria: "shirts"
@@ -295,6 +337,21 @@ Product.bulkCreate([
     stock: 4,
     categoria: "shirts"
   },
+
+  {
+    name: "Remera Active",
+    image:"https://imgur.com/0mzIEAV.png",
+    image1:"https://http2.mlstatic.com/D_NQ_NP_2X_736592-MLA48419253303_122021-F.webp",
+    image2:"https://http2.mlstatic.com/D_NQ_NP_2X_665447-MLA48419253304_122021-F.webp",
+    image3:"https://http2.mlstatic.com/D_NQ_NP_2X_900255-MLA48419253302_122021-F.webp",
+    color: "Black",
+    description:"Every day you will open your closet and choose this excellent performance t-shirt again and again. It has flatlock seams to prevent chafing during training sessions and dryCELL, PUMA's signature technology to wick away moisture. Thus, this model will help you to continue and continue even in the toughest workouts.",
+    size: "XS",
+    brand: "Puma",
+    price: 45,
+    stock: 4,
+    categoria: "shirts"
+  },
   {
     name: "Remera Aeroready",
     image:"https://imgur.com/ln8xdbV.png",
@@ -349,20 +406,6 @@ Product.bulkCreate([
     brand: "Adidas",
     price: 45,
     stock: 10,
-    categoria: "shirts"
-  },
-  {
-    name: "Top Hero Strappy",
-    image:"https://imgur.com/EQFs9dw.png",
-    image1:"https://http2.mlstatic.com/D_NQ_NP_2X_715210-MLA49169182100_022022-F.webp",
-    image2:"https://http2.mlstatic.com/D_NQ_NP_2X_817504-MLA49169182101_022022-F.webp",
-    image3:"https://http2.mlstatic.com/D_NQ_NP_2X_864318-MLA49169182104_022022-F.webp",
-    color: "Orange",
-    description:"Fashion and functionality in a single garment. This sports bra features a very chic design with slim straps at the back to keep you ventilated during your most intense workouts. Soft construction in sweat-wicking fabric includes mesh panels for a lightweight feel. Adjust the straps to your size and use it with or without the pads.",
-    size: "S",
-    brand: "Reebok",
-    price: 38,
-    stock: 26,
     categoria: "shirts"
   },
   {
@@ -560,5 +603,131 @@ Product.bulkCreate([
     price: 150,
     stock: 49,
     categoria: "accesories"
+  },
+  {
+    name: "Wilson Pro Staff",
+    image:"https://imgur.com/KLwLd4E.png",
+    image1:"https://http2.mlstatic.com/D_NQ_NP_839955-MLA46990083696_082021-O.webp",
+    image2:"https://http2.mlstatic.com/D_NQ_NP_723466-MLA46990169223_082021-O.webp",
+    image3:"https://http2.mlstatic.com/D_NQ_NP_730883-MLA46990081703_082021-O.webp",
+    color: "black",
+    description:"The Pro Staff 97L v13 provides a lighter, more maneuverable frame for any player who craves the classic precision and feel of the Pro Staff, but prefers a more arm-friendly swing weight. This model includes a new construction, Braid 45, which increases precision by arranging the carbon fibers at 45 degree angles to improve ball feel and remarkable stability during the swing. Modern design meets classic heritage with an exposed carbon fiber woven gloss finish on the racket, a sleek black elastic base, and a pair of red and yellow stripes along the neck for a look that marries Pro-inspired. Staff with a novel innovation.",
+    size: "97",
+    brand: "Wilson",
+    price: 455.51,
+    stock: 4,
+    categoria: "accesories"
+  },
+  {
+    name: "Raquetero Wilson Super Tour X9 Roland Garros",
+    image:"https://imgur.com/5fiMRBr.png",
+    image1:"https://http2.mlstatic.com/D_NQ_NP_986591-MLA50742067227_072022-O.webp",
+    image2:"https://http2.mlstatic.com/D_NQ_NP_936945-MLA50742043366_072022-O.webp",
+    image3:"https://http2.mlstatic.com/D_NQ_NP_743151-MLA50742075298_072022-O.webp",
+    color: "blue",
+    description:"The Roland Garros Super Tour Collection embodies sophisticated style and supreme utility with a design inspired by the world's most famous clay court tournament. This Wilson Roland Garros racket bag features three compartments that offer plenty of space for tennis equipment and gear, including up to 15 tennis rackets. It features a couple of large outside pockets, a zippered shoe pocket and shoulder straps to ensure optimal carrying.",
+    size: "2",
+    brand: "Wilson",
+    price: 477.20,
+    stock: 2,
+    categoria: "accesories"
+  },
+  {
+    name: "Fila Presence",
+    image:"https://imgur.com/uh0Eyga.png",
+    image1:"https://http2.mlstatic.com/D_NQ_NP_2X_616080-MLA50484090581_062022-F.webp",
+    image2:"https://http2.mlstatic.com/D_NQ_NP_2X_743570-MLA50484099479_062022-F.webp",
+    image3:"https://http2.mlstatic.com/D_NQ_NP_842199-MLA50484283373_062022-O.webp",
+    color: "black",
+    description:"Throughout its 110-year history, Fila has managed to unite the sporty with the casual. The disruptive DNA of the brand is seen in each collection, where trends in design and state-of-the-art technology complement each other. mesh slippersThanks to its technology, this material achieves greater balance and comfort in the tread, since it offers a natural and flexible support of the foot. Rubber soleShoes made with a rubber sole have greater wear resistance, are naturally waterproof and flexible, and also extend the stability of the contraction. for trainingTraining comfortably and safely is possible with these shoes thanks to their flat and more flexible sole",
+    size: "42",
+    brand: "Fila",
+    price: 65.07,
+    stock: 12,
+    categoria: "shoes"
+  },
+  {
+    name: "adidas Terrex Soulstride 3492",
+    image:"https://imgur.com/pmBxYmv.png",
+    image1:"https://http2.mlstatic.com/D_NQ_NP_2X_959057-MLA50592468206_072022-F.webp",
+    image2:"https://http2.mlstatic.com/D_NQ_NP_2X_678266-MLA50592468209_072022-F.webp",
+    image3:"https://http2.mlstatic.com/D_NQ_NP_876835-MLA50592468204_072022-O.webp",
+    color: "gray",
+    description:"Go further with these adidas Terrex trail running shoes. The cushioning in the midsole and ultra-soft cushioning in the heel allow you to move forward in total comfort. The hybrid grooved outsole lets you transition from trail to asphalt with ease. Raised edges complement the engineered mesh upper to keep your stride stable no matter where the trail takes you.",
+    size: "44",
+    brand: "adidas",
+    price: 238.60,
+    stock: 5,
+    categoria: "shoes"
+  },
+  {
+    name: "I-run 3693 Hombre Deportivas Cámara De Aire",
+    image:"https://imgur.com/mA7sc29.png",
+    image1:"https://http2.mlstatic.com/D_NQ_NP_2X_644134-MLA47931750283_102021-F.webp",
+    image2:"https://http2.mlstatic.com/D_NQ_NP_2X_934589-MLA47931736369_102021-F.webp",
+    image3:"https://http2.mlstatic.com/D_NQ_NP_762422-MLA47931750284_102021-O.webp",
+    color: "blue",
+    description:"Original I-Run Trainers with air chamber I-Run shoes have a small fit, we recommend taking into account the centimeters in the size guide. Any questions you can consult us.",
+    size: "39",
+    brand: "Nix",
+    price: 108.45,
+    stock: 12,
+    categoria: "shoes"
+  },
+  {
+    name: " Pro N3xt 2021 Toqgri Basket",
+    image:"https://imgur.com/VxK2T4p.png",
+    image1:"https://http2.mlstatic.com/D_NQ_NP_2X_893120-MLA51274996205_082022-F.webp",
+    image2:"https://http2.mlstatic.com/D_NQ_NP_615994-MLA51274996201_082022-O.webp",
+    image3:"https://http2.mlstatic.com/D_NQ_NP_990451-MLA51274996207_082022-O.webp",
+    color: "white",
+    description:"You put the rules on the field. These adidas basketball shoes allow you to move with fluidity and comfort thanks to the lightweight Bounce midsole with cushioning. Leave the rival defense behind no matter if you are playing on the asphalt or on an indoor court.",
+    size: "45",
+    brand: "adidas",
+    price: 166.30,
+    stock: 3,
+    categoria: "shoes"
+  },
+  {
+    name: "Nike tiempo",
+    image:"https://imgur.com/QZLAUm5.png",
+    image1:"https://http2.mlstatic.com/D_NQ_NP_893799-MLA46168754772_052021-O.webp",
+    image2:"https://http2.mlstatic.com/D_NQ_NP_668419-MLA46168754776_052021-O.webp",
+    image3:"https://http2.mlstatic.com/D_NQ_NP_762242-MLA46168754775_052021-O.webp",
+    color: "black",
+    description:"The published numbers are Argentine, which do not appear on the shoe boxes. Checking the size guide of each product you will find their respective equivalences in US, UK, EUR and CM numbering. The size guide is available below the sizes available for each product.",
+    size: "38",
+    brand: "nike",
+    price: 50.61,
+    stock: 4,
+    categoria: "shoes"
+  },
+  {
+    name: "Nike mercurial",
+    image:"https://imgur.com/uYlkhYl.png",
+    image1:"https://http2.mlstatic.com/D_NQ_NP_991365-MLA46203034939_052021-O.webp",
+    image2:"https://http2.mlstatic.com/D_NQ_NP_2X_775775-MLA46203034942_052021-F.webp",
+    image3:"https://http2.mlstatic.com/D_NQ_NP_652291-MLA46203034944_052021-O.webp",
+    color: "blue",
+    description:"The published numbers are Argentine, which do not appear on the shoe boxes. Checking the size guide of each product you will find their respective equivalences in US, UK, EUR and CM numbering. The size guide is available below the sizes available for each product.",
+    size: "40",
+    brand: "nike",
+    price: 72.30,
+    stock: 8,
+    categoria: "shoes"
+  },
+  {
+    name: "adidas X Speedflow.3",
+    image:"https://imgur.com/hjIjCfV.png",
+    image1:"https://http2.mlstatic.com/D_NQ_NP_693460-MLA48734560518_012022-O.webp",
+    image2:"https://http2.mlstatic.com/D_NQ_NP_919920-MLA48734560517_012022-O.webp",
+    image3:"https://http2.mlstatic.com/D_NQ_NP_700493-MLA48734560514_012022-O.webp",
+    color: "white",
+    description:"Images are for illustrative purposes only and colors may look slightly different depending on the settings (brightness/contrast) of the device you are viewing them on.",
+    size: "41",
+    brand: "adidas",
+    price: 151.84,
+    stock: 6,
+    categoria: "shoes"
   },
 ]);
