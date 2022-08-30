@@ -4,7 +4,7 @@ const router = express.Router();
 const {validateAuth} = require("../middleware/auth");
 
 const { register, login, validation, logout} = require("../controllers/auth");
-const { profile, changePassword, users, user, admin } = require("../controllers/users");
+const { profile, changePassword, users, user, admin, darNewAdmin } = require("../controllers/users");
 
 router.put("/admin/:id", validateAuth, admin)
 
@@ -24,4 +24,10 @@ router.get("/",validateAuth,users)
 
 router.get("/user/:id",validateAuth, user)
 
+router.put("/darNewAdmin/:id", validateAuth, darNewAdmin)
+
+// preguntar el de eliminar o seria cambiar de adm a usuario comun
+
 module.exports = router;
+
+
