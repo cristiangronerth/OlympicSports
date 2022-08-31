@@ -24,7 +24,8 @@ import { useDispatch, useSelector } from "react-redux"
 import { getProduct } from "../../state/products";
 import { getProfile } from "../../state/auth";
 import { addCartItem, getCartItems } from "../../state/cartItem";
-
+import { getCartUser, getTotal } from "../../state/cartUser";
+  
 function ProductDetail() {
   const [showCart, setShowCart] = useState("cart");
 
@@ -35,12 +36,13 @@ function ProductDetail() {
 
   const [product, setProduct] = useState([]);
   const [cartItems,setCartItems] = useState([]);
+  const [total,setTotal] = useState({});
 
   useEffect(() => {
     const fetchData = async () => {
       const getProducts = dispatch(getProduct({setProduct,productId}))
       const getMyProfile = dispatch(getProfile())
-      Promise.all([getProducts,getMyProfile])
+      Promise.all([getProducts,getMyProfile,getTotal])
     }
 
     fetchData()
@@ -50,9 +52,10 @@ function ProductDetail() {
     e.preventDefault();
     const addCartItems = await dispatch(addCartItem({userId : user.id , productId : product[0].id, price: product[0].price}))
     const getCartItem = await dispatch(getCartItems(setCartItems));
+    const actualizeTotal = await dispatch(getCartUser())
+    const gtotal = await dispatch(getTotal(setTotal))
     const showCart = await setShowCart("cart cart-active")
   };
-  
 
   return (
     <>
@@ -170,7 +173,7 @@ function ProductDetail() {
       {/* CART */}
 
       <div className={showCart}>
-        <Cart setShowCart={setShowCart} cartItems={cartItems} setCartItemsDelete={setCartItems} />
+        <Cart setShowCart={setShowCart} cartItems={cartItems} setCartItemsDelete={setCartItems} total={total} />
       </div>
     </>
   );

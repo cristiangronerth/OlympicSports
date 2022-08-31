@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { getCartItems } from "../../state/cartItem";
 
 
-function Cart({setShowCart, cartItems, setCartItemsDelete}) {
+function Cart({setShowCart, cartItems, setCartItemsDelete, total}) {
 
   const hideCartHandler = (e) => {
     e.preventDefault()
@@ -20,6 +20,7 @@ function Cart({setShowCart, cartItems, setCartItemsDelete}) {
     dispatch(getCartItems(setCartItems))
   },[])
 
+
   return (
     <>
       <CartHeader hideCartHandler={hideCartHandler}/>
@@ -28,7 +29,7 @@ function Cart({setShowCart, cartItems, setCartItemsDelete}) {
       )) : (cartItems2.map((item,i) => (
         <CartItem key={i} productId={item.productId} setCartItemsDelete={setCartItemsDelete}/>
       )))}
-      <CartSummary/>
+      <CartSummary total={total}/>
     </>
   );
 }

@@ -13,6 +13,7 @@ import styled from "styled-components";
 
 import { useDispatch } from "react-redux";
 import { deleteItem, getCartItems } from "../../state/cartItem";
+import { getCartUser } from "../../state/cartUser";
 
 function CartItemInput({quantity, cartItemId, setCartItems}) {
 
@@ -21,6 +22,7 @@ function CartItemInput({quantity, cartItemId, setCartItems}) {
   const DeleteItem = async (e) => {
     e.preventDefault();
     const addCartItems = await dispatch(deleteItem(cartItemId))
+    const actualizeTotal = await dispatch(getCartUser())
     const getCartItem = await dispatch(getCartItems(setCartItems));
   };
 
