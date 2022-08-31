@@ -2,7 +2,7 @@ const express = require("express");
 const { CartItem } = require("../models");
 const User = require("../models/User");
 const router = express.Router();
-
+const { validateAuth } = require("../middleware/auth");
 const nodemailer = require("nodemailer");
 const {google} = require("googleapis");
 const OAuth2 = google.auth.OAuth2;

@@ -7,20 +7,16 @@ import Cart from "../components/Cart/Cart";
 import "./Cart.css";
 
 import { Link as LinkButton } from "@chakra-ui/react";
-import axios from "axios";
 
 const Navbar = () => {
+
   const [open, setOpen] = useState(false);
   const [showCart, setShowCart] = useState("cart");
-  const [products, setProducts] = useState("");
 
   //CART
   const showCartHandler = (e) => {
     e.preventDefault();
     setShowCart("cart cart-active");
-    axios
-      .get(`/api/cartItem?userId=${user.id}`)
-      .then((res) => setProducts(res.data));
   };
 
   //popup

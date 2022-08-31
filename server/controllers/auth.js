@@ -9,17 +9,12 @@ const client = new OAuth2Client(
 // register
 exports.register = (req, res) => {
   const user = req.body;
-  const isRegistered = User.findAll({where: {email}})
-    if(isRegistered[0]){
-      res.status(401).send("email ya registrado")
-    }else{
-      User.create(user).then((user) => {
-        CartUser.create({
-          userId : user.id
-        }).then(()=>res.sendStatus(201))
-    });
-  }
-}
+  User.create(user).then((user) => {
+    CartUser.create({
+      userId : user.id
+    }).then(()=>res.sendStatus(201))
+  });
+};
 
 
 // login

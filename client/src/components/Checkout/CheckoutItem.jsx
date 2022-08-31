@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 
 import { getCartItemProducts } from "../../state/cartItem";
 
-function CheckoutItem({ productId }) {
+function CheckoutItem({ productId , quantity }) {
   const [products, setProducts] = useState([]);
   const dispatch = useDispatch();
 
@@ -20,7 +20,7 @@ function CheckoutItem({ productId }) {
           <img src={product.product.image} alt="" />
           <div className="info">
             <h4>{product.product.name}</h4>
-            <p className="quantity">Quantity: 1</p>
+            <p className="quantity">Quantity: {quantity}</p>
             <p className="price">{product.product.price}$</p>
           </div>
         </div>

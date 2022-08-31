@@ -1,19 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
+import { getTotal } from "../../state/cartUser";
 import { addToHistorial, deleteCartItems } from "../../state/checkout";
 import CheckoutItem from "./CheckoutItem";
 
-function CheckoutWrapper({cartItems}) {
+function CheckoutWrapper({ cartItems }) {
 
-    const dispatch = useDispatch()
+  const [total, setTotal] = useState({});
+  const dispatch = useDispatch();
 
-    const cartItemsHandler = (e) => {
-        e.preventDefault(e);
-        dispatch(deleteCartItems());
-        dispatch(addToHistorial());
-      };
+  const cartItemsHandler = (e) => {
+    e.preventDefault(e);
+    dispatch(deleteCartItems());
+    dispatch(addToHistorial());
+  };
 
-
+  useEffect(() => {
+    dispatch(getTotal(setTotal));
+  }, []);
 
   return (
     <>
@@ -22,10 +26,10 @@ function CheckoutWrapper({cartItems}) {
           <div className="order">
             <h2>Your order summary</h2>
             {cartItems?.map((cartItem, i) => (
-              <CheckoutItem key={i} productId={cartItem.productId} />
+              <CheckoutItem key={i} productId={cartItem.productId} quantity={cartItem.quantity} />
             ))}
 
-            <h3 className="total">TOTAL: 60.91$</h3>
+            <h3 className="total">TOTAL: {total.total}$</h3>
           </div>
         </div>
         <div className="container2">
