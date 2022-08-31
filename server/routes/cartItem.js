@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 
-const { CreateCartItem, ModifyCartItem, DeleteCartItem, GetCartItem, GetCartItems } = require("../controllers/CartItem");
+const { CreateCartItem, ModifyCartItem, DeleteCartItem, GetCartItem, GetCartItems } = require("../controllers/cartItemController");
 const { validateAuth } = require("../middleware/auth");
 
 

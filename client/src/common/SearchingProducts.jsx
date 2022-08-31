@@ -13,7 +13,6 @@ const SearchingProducts = () => {
   const [items, setItems] = useState([]);
   const [allProducts, setAllProducts] = useState([]);
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.auth);
 
   const handleSearchProduct = (e) => {
     setSearchValue(e.target.value);

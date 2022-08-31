@@ -1,12 +1,12 @@
 const { CartHistory, CartUser, CartItem } = require("../models");
 
 exports.getAllCartHistory = (req, res) => {
-  console.log(req);
-  CartHistory.findOne({ where: { id: req.body.id } })
+  const { id } = req.user;
+  CartHistory.findOne({ where: { userId: id } })
     .then((history) => {
       if (!history) res.send({ message: "No tienes ninguna compra aun !" });
       else {
-        CartHistory.findAll({ where: { id: req.body.id } }).then((result) =>
+        CartHistory.findAll({ where: { userId: id } }).then((result) =>
           res.send(result)
         );
       }
@@ -15,7 +15,10 @@ exports.getAllCartHistory = (req, res) => {
 };
 
 exports.createCartHistory = (req, res) => {
-  CartItem.findAll({ where: { userId: 1 } })
+
+  const {id} = req.user
+
+  CartItem.findAll({ where: { userId: id } })
     .then((resul) => {
       const productos = [];
       const quantity = [];
@@ -29,7 +32,7 @@ exports.createCartHistory = (req, res) => {
       CartHistory.create({
         products: productsIdsAndQuantity[0],
         quantityForProduct: productsIdsAndQuantity[1],
-        userId: 1,
+        userId: id,
       }).then((cartHistory) => {
         CartUser.findOne({ where: { userId: 1 } })
           .then((cartUser) => {

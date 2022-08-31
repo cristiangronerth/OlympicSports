@@ -195,6 +195,14 @@ const Navbar = () => {
                       </div>
 
                       <div className="btn flex dropmenu">
+                        <Link className="ml-1" to="/historial ">
+                          <label className="hover:cursor-pointer mx-4">
+                            HISTORIAL
+                          </label>
+                        </Link>
+                      </div>
+
+                      <div className="btn flex dropmenu">
                         <label
                           onClick={handleLogout}
                           className="hover:cursor-pointer mx-6"

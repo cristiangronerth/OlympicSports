@@ -4,36 +4,50 @@ import { motion } from "framer-motion";
 export const Wrapper = styled(motion.div)`
   padding-left: 1.5em;
   padding-right: 1.5em;
-  margin-top: 8em;
+  margin-top: 15em;
   margin-bottom: 8em;
-  max-width: 768px;
+  max-width: 1024px;
 
   @media (min-width: 1000px) {
     margin-left: auto;
     margin-right: auto;
+  }
+
+  @media screen and (max-width: 1024px) {
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    margin-top: 15em;
+    margin-bottom: 8em;
+    max-width: 768px;
   }
 `;
 
 export const ProductDetails = styled.section`
   position: relative;
 
-  h1, h4, h3 {
+  h1,
+  h4,
+  h3 {
     text-transform: uppercase;
   }
 `;
 
 export const ProductTitle = styled(motion.div)`
-  h4 {
-    font-weight: 400;
-    font-size: 1.5rem;
-  }
-
   h1 {
     font-weight: 500;
     font-size: 10rem;
     line-height: 0.8em;
     font-family: "TTrailer";
     letter-spacing: -5px;
+
+    @media screen and (max-width: 1024px) {
+      font-size: 7rem;
+    }
+  }
+
+  h4 {
+    font-weight: 400;
+    font-size: 1.5rem;
   }
 `;
 
@@ -117,4 +131,3 @@ export const AddToCartButton = styled(motion.div)`
     text-decoration: none;
   }
 `;
-

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { getCartItems } from "../../state/cartItem";
-import { addToHistorial, deleteCartItems } from "../../state/checkout";
 
 import "./CheckoutForm.css";
 import CheckoutWrapper from "./CheckoutWrapper";

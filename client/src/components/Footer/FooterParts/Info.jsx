@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom"
 
 function Info() {
   return (
@@ -8,18 +9,18 @@ function Info() {
         <p>Info</p>
         <ul>
           <li>
-            <a href="/faq">Faq</a>
+            <Link to="/faq">Faq</Link>
           </li>
           <li>
-            <a href="/returns">Returns</a>
+            <Link to="/returns">Returns</Link>
           </li>
           <li>
-            <a href="/contact">Contact</a>
+            <Link to="/contact">Contact</Link>
           </li>
         </ul>
       </div>
       <SecondaryLink>
-        <a href="/credits">Credits</a>
+        <Link to="/credits">Credits</Link>
       </SecondaryLink>
     </InfoSection>
   );
