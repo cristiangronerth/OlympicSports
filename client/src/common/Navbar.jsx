@@ -9,7 +9,6 @@ import "./Cart.css";
 import { Link as LinkButton } from "@chakra-ui/react";
 
 const Navbar = () => {
-
   const [open, setOpen] = useState(false);
   const [showCart, setShowCart] = useState("cart");
 
@@ -110,14 +109,20 @@ const Navbar = () => {
                 )}
 
                 {open ? (
-                  <li className="md:ml-8 text-1xl md:my-0 my-7">
-                    <Categorias>CATEGORIAS</Categorias>
-                    <span className="ml-5">
-                      <ion-icon name="bookmarks-outline" />
-                    </span>
-                  </li>
+                  <Link to={"/categories"}>
+                    <li className="md:ml-8 text-1xl md:my-0 my-7">
+                      <Categorias>CATEGORIAS</Categorias>
+                      <span className="ml-5">
+                        <ion-icon name="bookmarks-outline" />
+                      </span>
+                    </li>
+                  </Link>
                 ) : (
-                  <li className="md:ml-8 text-1xl md:my-0 my-7">CATEGORIAS</li>
+                  <Link to={"/categories"}>
+                    <li className="md:ml-8 text-1xl md:my-0 my-7">
+                      CATEGORIAS
+                    </li>
+                  </Link>
                 )}
               </ul>
             </div>
