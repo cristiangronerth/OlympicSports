@@ -7,6 +7,8 @@ import rightLogin from "../../assets/images/login/rightLogin1.png"
 
 import { log, success, error } from "../../utils/logs"
 import { useInput } from "../../hooks/useInput";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUserShield } from '@fortawesome/free-solid-svg-icons'
 
 import { Flex, Box, FormControl, FormLabel, Input, Stack } from "@chakra-ui/react";
 import { useDispatch } from "react-redux";
@@ -60,6 +62,7 @@ function LoginForm() {
             </Stack>
             <Stack>
               <button className="font-Avenir font-bold pt-5 text-md" style={{letterSpacing:"2px"}}> Continue as Admin</button>
+              <FontAwesomeIcon icon={faUserShield} />
             </Stack>
           </Stack>
         </Box>

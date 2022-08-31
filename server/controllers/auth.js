@@ -8,14 +8,19 @@ const client = new OAuth2Client(
 
 // register
 exports.register = (req, res) => {
-  const user = req.body;
-  User.create(user).then((user) => {
-    CartUser.create({
-      userId : user.id
-    }).then(()=>res.sendStatus(201))
+  const userData = req.body;
+  User.findOne({ where: { email: req.body.email } }).then((user) => {
+    if (!user)
+      User.create(userData).then((user) => {
+        CartUser.create({
+          userId: user.id,
+        }).then(() => res.sendStatus(201));
+      });
+    else {
+      res.send({ message: "Usuario ya registrado" });
+    }
   });
 };
-
 
 // login
 exports.login = (req, res) => {
@@ -35,7 +40,8 @@ exports.login = (req, res) => {
         city: user.city,
         address: user.address,
         zip: user.zip,
-        phone: user.phone
+        phone: user.phone,
+        admin: user.admin,
       };
 
       const token = generateToken(payload); //
@@ -49,6 +55,7 @@ exports.login = (req, res) => {
 
 //valida si hay un usuario logueado, pedido de validar token
 exports.validation = (req, res) => {
+  console.log(req.user);
   res.send(req.user);
 };
 
@@ -57,7 +64,6 @@ exports.logout = (req, res) => {
   res.clearCookie("token");
   res.sendStatus(204);
 };
-
 
 exports.googlelogin = (req, res) => {
   const { credential } = req.body;
@@ -77,22 +83,27 @@ exports.googlelogin = (req, res) => {
         where: { email: email },
       }).then((user) => {
         if (!user) {
-          return User.create({email: email, password: password, name: given_name, lastname: family_name})
-            .then((user) => {
-              user.validatePassword(password).then((isValid) => {
-                if (!isValid) return res.send(401);
+          return User.create({
+            email: email,
+            password: password,
+            name: given_name,
+            lastname: family_name,
+          }).then((user) => {
+            user.validatePassword(password).then((isValid) => {
+              if (!isValid) return res.send(401);
 
-                const payload = {
-                  id: user.id,
-                  email: user.email,
-                  name: user.name,
-                  lastname: user.lastname,
-                };
-                const token = tokens.generateToken(payload);
-                res.cookie("token", token);
-                res.sendStatus(201);
-              })
+              const payload = {
+                id: user.id,
+                email: user.email,
+                name: user.name,
+                lastname: user.lastname,
+                admin: user.admin,
+              };
+              const token = tokens.generateToken(payload);
+              res.cookie("token", token);
+              res.sendStatus(201);
             });
+          });
         }
 
         user.validatePassword(password).then((isValid) => {

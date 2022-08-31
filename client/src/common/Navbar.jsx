@@ -7,6 +7,7 @@ import Cart from "../components/Cart/Cart";
 import "./Cart.css";
 
 import { Link as LinkButton } from "@chakra-ui/react";
+import axios from "axios";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -29,14 +30,25 @@ const Navbar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  //userAdmin
+  const [userAdmin, setUserAdmin] = useState(false)
+
+  
+
   useEffect(() => {
     dispatch(getProfile());
+    axios.get("/api/users/me")
+    .then((user)=> setUserAdmin(user.data.admin))
+    .catch((error)=> console.log(error))
+    
   }, []);
+  console.log(userAdmin);
 
   const handleLogout = (e) => {
     e.preventDefault();
     dispatch(logoutRequest());
     navigate("/");
+    window.location.reload()
   };
 
   return (
@@ -124,6 +136,27 @@ const Navbar = () => {
                     </li>
                   </Link>
                 )}
+                
+                {open && userAdmin ? (
+                  <Link to={"/adminPanel"}>
+                  <li className="md:ml-8 text-1xl md:my-0 my-7">
+                    <Categorias>Admin Panel</Categorias>
+                    <span className="ml-5">
+                    <ion-icon name="shield-checkmark-outline"/>
+                    </span>
+                  </li>
+                  </Link>
+                ) : userAdmin ? (
+                  ( <Link to={"/adminPanel"}>
+                    <li className="md:ml-8 text-1xl md:my-0 my-7">ADMIN PANEL</li>
+                    </Link>
+                  )
+                ):
+                ""
+                }
+                    
+
+
               </ul>
             </div>
 
