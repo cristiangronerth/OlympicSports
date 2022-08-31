@@ -3,8 +3,8 @@ const router = express.Router();
 
 const {validateAuth} = require("../middleware/auth");
 
-const { register, login, validation, logout} = require("../controllers/auth");
-const { profile, changePassword, users, user, admin, darNewAdmin, deleteUser } = require("../controllers/users");
+const { register, login, validation, logout} = require("../controllers/authController");
+const { profile, changePassword, users, user, admin, darNewAdmin, deleteUser } = require("../controllers/usersController");
 
 router.put("/admin/:id", validateAuth, admin)
 

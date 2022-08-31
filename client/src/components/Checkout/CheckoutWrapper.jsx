@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router";
 import { getTotal } from "../../state/cartUser";
 import { addToHistorial, deleteCartItems } from "../../state/checkout";
 import CheckoutItem from "./CheckoutItem";
@@ -8,11 +9,13 @@ function CheckoutWrapper({ cartItems }) {
 
   const [total, setTotal] = useState({});
   const dispatch = useDispatch();
+  const navigate = useNavigate()
 
   const cartItemsHandler = (e) => {
     e.preventDefault(e);
     dispatch(deleteCartItems());
     dispatch(addToHistorial());
+    navigate("/")
   };
 
   useEffect(() => {

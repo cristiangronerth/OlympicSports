@@ -154,6 +154,8 @@ function RegisterForm() {
               <button className="font-Avenir font-bold pt-5 text-md" style={{letterSpacing:"2px"}}>REGISTER</button>
               <Link to="/login" className="font-Avenir text-sm text-center hover:no-underline">Back to Login</Link>
             </Stack>
+
+            
           
           </Stack>
         </Box>

@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
+import {Link} from "react-router-dom"
+
 function Policy() {
   return (
     <PolicySection>
@@ -8,13 +10,13 @@ function Policy() {
         <p>Policy</p>
         <ul>
           <li>
-            <a href="/terms">Terms</a>
+            <Link to="/terms">Terms</Link>
           </li>
           <li>
-            <a href="/privacy">Privacy</a>
+            <Link to="/privacy">Privacy</Link>
           </li>
           <li>
-            <a href="/cookie">Cookie</a>
+            <Link to="/cookie">Cookie</Link>
           </li>
         </ul>
       </div>

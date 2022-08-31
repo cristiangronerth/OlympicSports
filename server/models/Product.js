@@ -38,7 +38,7 @@ Product.init(
     //   allowNull: false,
     // },
     size: {
-      type: DataTypes.STRING,
+      type: DataTypes.ARRAY(DataTypes.STRING),
       allowNull: false,
     },
     brand: {

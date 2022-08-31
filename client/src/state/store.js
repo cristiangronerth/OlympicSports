@@ -3,6 +3,7 @@ import logger from "redux-logger"
 
 
 import authReducer from "./auth";
+import cartHistoryReducer from "./cartHistory";
 import cartItemReducer from "./cartItem";
 import cartUserReducer from "./cartUser";
 import checkoutReducer from "./checkout";
@@ -16,7 +17,8 @@ const store = configureStore({
         products: productReducer,
         cartItems: cartItemReducer,
         cartUser: cartUserReducer,
-        checkout: checkoutReducer
+        checkout: checkoutReducer,
+        history: cartHistoryReducer
     }
 })
 

@@ -31,7 +31,7 @@ const Button = styled.div`
   }
 `;
 
-const Icon = styled.a`
+const Icon = styled.div`
   position: relative;
   margin-left: 0.7em;
 

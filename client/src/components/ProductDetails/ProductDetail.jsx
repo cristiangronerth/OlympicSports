@@ -57,6 +57,8 @@ function ProductDetail() {
     const showCart = await setShowCart("cart cart-active")
   };
 
+  console.log(product)
+
   return (
     <>
       {product.map((item, i) => (
@@ -162,7 +164,7 @@ function ProductDetail() {
             </AddToCartButton>
 
             <div className="sm:hidden md:hidden lg:hiden xl:flex">
-              <AddToCartButton2 addToCartHandler={addToCartHandler} />
+              <AddToCartButton2 addToCartHandler={addToCartHandler} item={item} />
             </div>
 
             <hr />

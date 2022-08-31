@@ -9,7 +9,7 @@ const {
   deleteProduct,
   getProducts,
   getProductSearch,
-} = require("../controllers/products");
+} = require("../controllers/productsController");
 
 products.post("/createProduct", createProduct);
 

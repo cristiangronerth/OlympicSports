@@ -20,6 +20,7 @@ import Categories from "./pages/Categories";
 import AdminPanel from "./pages/AdminPanel";
 import UsersPanel from "./components/AdminPanel/UsersPanel/UsersPanel";
 import ProductsPanel from "./components/AdminPanel/ProductsPanel/ProductsPanel";
+import Historial from "./pages/Historial";
 
 
 function App() {
@@ -46,6 +47,7 @@ function App() {
       <Route path="/adminPanel/usersPanel" element={<UsersPanel/>} />
       <Route path="/adminPanel/productsPanel" element={<ProductsPanel/>} />
       {/* <Route path="/categories Panel" element={<CategoriesPanel/>} /> */}
+      <Route path="/historial" element={<Historial/>} />
     </Routes>
   );
 }

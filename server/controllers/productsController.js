@@ -1,4 +1,4 @@
-const { Product, CartItem } = require("../models/");
+const { Product, CartItem } = require("../models");
 const { Op } = require("sequelize");
 
 exports.createProduct = (req, res) => {
