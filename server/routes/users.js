@@ -4,7 +4,7 @@ const router = express.Router();
 const {validateAuth} = require("../middleware/auth");
 
 const { register, login, validation, logout} = require("../controllers/authController");
-const { profile, changePassword, users, user, admin, darNewAdmin } = require("../controllers/usersController");
+const { profile, changePassword, users, user, admin, darNewAdmin, deleteUser } = require("../controllers/usersController");
 
 router.put("/admin/:id", validateAuth, admin)
 
