@@ -1,10 +1,11 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import Cart from "./components/Cart/Cart";
 import ChangePassword from "./pages/ChangePassword";
 import Checkout from "./pages/Checkout";
 
 import Home from "./pages/Home";
+import NotFound from "./common/NotFound/NotFound";
 import Login from "./pages/Login";
 import ProductDetails from "./pages/ProductDetails";
 import Profile from "./pages/Profile";
@@ -15,9 +16,11 @@ import Pants from "./pages/Pants";
 import Shoes from "./pages/Shoes";
 import Accesories from "./pages/Accesories";
 import SearchProducts from "./pages/SearchProducts";
+import Categories from "./pages/Categories";
 import AdminPanel from "./pages/AdminPanel";
 import UsersPanel from "./components/AdminPanel/UsersPanel/UsersPanel";
 import ProductsPanel from "./components/AdminPanel/ProductsPanel/ProductsPanel";
+
 
 function App() {
   return (
@@ -35,6 +38,9 @@ function App() {
       <Route path="/shoes" element={<Shoes />} />
       <Route path="/accesories" element={<Accesories />} />
       <Route path="/search" element={<SearchProducts />} />
+      <Route path="/categories" element={<Categories />} />
+      <Route path="/404" element={<NotFound />} />
+      <Route path="/*" element={<Navigate to={"404"} />} />
       <Route path="/checkout" element={<Checkout/>} />
       <Route path="/adminPanel" element={<AdminPanel/>} />
       <Route path="/adminPanel/usersPanel" element={<UsersPanel/>} />
@@ -42,7 +48,6 @@ function App() {
       {/* <Route path="/categories Panel" element={<CategoriesPanel/>} /> */}
     </Routes>
   );
-
 }
 
 export default App;
