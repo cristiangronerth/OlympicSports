@@ -11,7 +11,7 @@ import productReducer from "./products";
 
 
 const store = configureStore({
-    // middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
+    //  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
     reducer: {
         auth: authReducer,
         products: productReducer,

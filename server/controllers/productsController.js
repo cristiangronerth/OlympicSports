@@ -95,7 +95,6 @@ exports.getProductSearch = (req, res) => {
       [Op.or]: [
         { name: search },
         { color: search },
-        { size: search },
         { brand: search },
         { categoria: search },
       ],
