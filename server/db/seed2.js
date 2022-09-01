@@ -1,33 +1,20 @@
-const { User, Product } = require("../models");
+const { Product, User } = require("../models");
 
-/* User.bulkCreate([
+//Crear un usuario administrador para ser usado en el auto-login (demo)
+User.create(
   {
-    name: "Elon",
-    lastname: "Musk",
-    email: "elon@gmail.com",
-    password: "elonmusk",
-    date_of_birth: "1980-12-02", //como se pone la fecha!?
-    address: "asdeas",
-    is_admin: true,
+    name: "Administrador",
+    lastname: "OlympicSports",
+    email: "admin@gmail.com",
+    password: "admin",
+    state: "Entre Rios",
+    city:"Aranguren", 
+    address: "Calle siempre viva 123",
+    zip: 123456,
+    phone: 3435010290,
+    admin: true,
   },
-  {
-    name: "Bill",
-    lastname: "Gates",
-    email: "bill@gmail.com",
-    password: "billgates",
-    date_of_birth: "1999-10-24",
-    address: "astr",
-  },
-  {
-    name: "Marco",
-    lastname: "Polo",
-    email: "marco@gmail.com",
-    password: "marcopolo",
-    date_of_birth: "2001-11-20",
-    address: "dddd",
-    is_admin: true,
-  },
-]); */
+);
 Product.bulkCreate([
   {
     name: "Short Nsw Essential",
