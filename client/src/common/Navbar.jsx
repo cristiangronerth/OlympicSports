@@ -36,13 +36,8 @@ const Navbar = () => {
   
 
   useEffect(() => {
-    dispatch(getProfile());
-    axios.get("/api/users/me")
-    .then((user)=> setUserAdmin(user.data.admin))
-    .catch((error)=> console.log(error))
-    
+    dispatch(getProfile(setUserAdmin));
   }, []);
-  console.log(userAdmin);
 
   const handleLogout = (e) => {
     e.preventDefault();

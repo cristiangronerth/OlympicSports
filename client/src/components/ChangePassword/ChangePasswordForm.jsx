@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 import { useInput } from "../../hooks/useInput";
@@ -7,35 +7,40 @@ import { Flex, Box, FormControl, FormLabel, Input, Stack } from "@chakra-ui/reac
 import aside from "../../assets/videos/profile.mp4"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faVolumeHigh, faVolumeMute } from "@fortawesome/free-solid-svg-icons"
-// import "./Btn.css"
+import { ExclamationCircleIcon } from "@heroicons/react/solid";
 
-import { useDispatch, useSelector } from "react-redux";
-import { getProfile } from "../../state/auth";
+import { useDispatch } from "react-redux";
+import { logoutRequest } from "../../state/auth";
+import { changePassword } from "../../state/user";
 
-import axios from "axios";
 import styled from "styled-components";
 
 export default function ProfileForm() {
 
 
-  const email = useInput("email");
   const password = useInput("password");
-
-  const dispatch = useDispatch();
-  const user = useSelector(state => state.auth)
+  const confirmPassword = useInput("confirmPassword");
 
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
+  //same password message
+  const [message, setMessage] = useState(false);
 
-  const handleSubmit = (e) => {
+  const toggleMessage = () => setMessage(true);
+
+  //submit
+  const submitHandler = (e) => {
     e.preventDefault();
 
-  }
-
-
-  useEffect(() => {
-    dispatch(getProfile())
-  },[])
+    if (password.value.length > 0) {
+      if (password.value === confirmPassword.value) {
+        dispatch(changePassword({ password }));
+        dispatch(logoutRequest());
+        navigate("/");
+      }
+    }
+  };
 
   // trailer sound toggle
   const [toggleMute, setToggleMute] = useState(true);
@@ -48,7 +53,7 @@ export default function ProfileForm() {
   return (
     <Stack minH={'100vh'} direction={{ base: 'column', md: 'row' }}>
       <Flex p={8} flex={1} align={'center'} justify={'center'}>
-      <Stack spacing={8} className="lg:w-[550px] mx-20" py={12} px={6} as={'form'} onSubmit={handleSubmit}>
+      <Stack spacing={8} className="lg:w-[550px] mx-20" py={12} px={6} as={'form'} onSubmit={submitHandler}>
         <Stack align={"center"}>
           <h1 className="font-Avenir text-4xl">
             Change Password
@@ -58,24 +63,26 @@ export default function ProfileForm() {
           <Stack spacing={4}>
 
             <FormControl>
-                <FormLabel className="font-Avenir"><span className="text-xs" style={{letterSpacing:"2px"}} >EMAIL</span></FormLabel>
-                <Input placeholder='Type your email' borderColor='black' focusBorderColor="black" type="email" {...email}/>
-            </FormControl>
-
-
-            <FormControl>
                   <FormLabel className="font-Avenir"><span className="text-xs" style={{letterSpacing:"2px"}} >PASSWORD</span></FormLabel>
-                  <Input borderColor='black' focusBorderColor="black" type="tel" {...password}/>
+                  <Input borderColor='black' focusBorderColor="black" type="password" {...password}/>
             </FormControl>
 
             <FormControl>
                   <FormLabel className="font-Avenir"><span className="text-xs" style={{letterSpacing:"2px"}} >CONFIRM PASSWORD</span></FormLabel>
-                  <Input borderColor='black' focusBorderColor="black" type="tel" {...password}/>
+                  <Input borderColor='black' focusBorderColor="black" type="password" {...confirmPassword}/>
             </FormControl>
-            
+
+
+            <Meesage activeState={message}>
+            {" "}
+            <ExclamationCircleIcon
+              style={{ height: "25px", width: "25px", color:"red" }}
+            />{" "}
+            Passwords must be the same
+          </Meesage>
 
             <Stack spacing={10}>
-              <button className="font-Avenir font-bold pt-5 text-md" style={{letterSpacing:"2px"}}>Confirm</button>
+              <button className="font-Avenir font-bold pt-5 text-md" style={{letterSpacing:"2px"}} onClick={toggleMessage}>Confirm</button>
               <Link to="/" className="font-Avenir text-sm text-center hover:no-underline">Back to Home</Link>
             </Stack>
           
@@ -100,6 +107,16 @@ export default function ProfileForm() {
     </Stack>
   );
 }
+
+const Meesage = styled.p`
+  display: ${(event) => (event.activeState ? "flex" : "none")};
+
+  font-size: 17px;
+  text-align: center;
+  letter-spacing: 1px;
+
+  color: red;
+`;
 
 const Trailer = styled.video`
   height: 100%;

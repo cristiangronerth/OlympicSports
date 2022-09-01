@@ -17,9 +17,9 @@ function UserHistorial() {
 
   return (
     <section className="text-gray-600 body-font">
-      {historyProducts.map((item, i) => (
+      {historyProducts.length > 0 ? historyProducts.map((item, i) => (
         <HistorialItems key={i} products={item} item={i} />
-      ))}
+      )) : (<h1 style={{fontSize:"40px",textAlign:"center", marginTop:"50vh"}}>You have nothing in your purchase history</h1>)}
     </section>
   );
 }

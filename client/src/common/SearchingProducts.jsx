@@ -48,9 +48,6 @@ const SearchingProducts = () => {
       .catch((error) => console.log(error));
   }, []);
 
-  console.log(items);
-  console.log(allProducts)
-
    //Get current posts
    const indexOfLastPost2 = currentPage2 * postsPerPage2;
    const indexOfFirstPost2 = indexOfLastPost2 - postsPerPage2;
@@ -58,14 +55,14 @@ const SearchingProducts = () => {
 
     //Change page
   const paginate2 = (pageNumber) => setCurrentPage2(pageNumber);
-
   return (
     <>
       <form onSubmit={handleSearch}>
         <input
           type="text"
-          className=" w-full h-11 rounded-[8rem] outline-none px-5 py-3 placeholder:text-slate-500 text-[1.1rem] text-black/50 mt-20 "
-          placeholder="Search for a product"
+          className=" w-full h-20 rounded-[8rem] outline-none px-5 py-3 placeholder:text-slate-500 text-[1.1rem] text-black/50 mt-28 text-center "
+          style={{fontSize:"24px"}}
+          placeholder="Search for a product..."
           value={searchValue}
           onChange={handleSearchProduct}
         />
