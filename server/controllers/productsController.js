@@ -64,7 +64,7 @@ exports.getAllProducts = (req, res) => {
 
 exports.updateProduct = (req, res) => {
   const id = req.params.id;
-  Product.update(req.body, { where: { id: id } })
+  Product.update(req.body.data, { where: { id: id } })
     .then(() => res.sendStatus(204))
     .catch((err) => console.log(err));
 };
@@ -95,7 +95,6 @@ exports.getProductSearch = (req, res) => {
       [Op.or]: [
         { name: search },
         { color: search },
-        { size: search },
         { brand: search },
         { categoria: search },
       ],

@@ -11,27 +11,27 @@ const ArticleList = () => {
   const categoria = [
     {
       img: shirt,
-      link: "/shirts",
+      link: "shirts",
       category: "SHIRTS",
     },
     {
       img: shorts,
-      link: "/shorts",
+      link: "shorts",
       category: "SHORTS",
     },
     {
       img: shoes,
-      link: "/shoes",
+      link: "shoes",
       category: "SHOES",
     },
     {
       img: pants,
-      link: "/pants",
+      link: "pants",
       category: "PANTS",
     },
     {
       img: accesories,
-      link: "/accesories",
+      link: "accesories",
       category: "ACCESORIES",
     },
   ];
@@ -66,7 +66,7 @@ const ArticleList = () => {
                 seitan poutine tumeric. Gastropub blue bottle austin listicle
                 pour-over, neutra jean.
               </p>
-              <NavLink to={`/${cat.category}`}>
+              <NavLink to={`/${cat.link}`}>
                 <div className="flex">
                   <button className="flex ml-auto text-white bg-pink-900 border-0 py-2 px-6 focus:outline-none hover:bg-pink-800 rounded">
                     {cat.category}
