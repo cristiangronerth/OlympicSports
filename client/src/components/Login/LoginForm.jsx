@@ -24,6 +24,8 @@ import { loginRequest } from "../../state/auth";
 function LoginForm() {
   const email = useInput("email");
   const password = useInput("password");
+  const emailAdmin = {value:"admin@gmail.com"};
+  const passwordAdmin = {value:"admin"}
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -38,6 +40,17 @@ function LoginForm() {
       })
       .catch((res) => error(res.status, res.statusText));
   };
+
+  const handleLoginAdmin = (e)=> {
+    e.preventDefault()
+    log("login attempt....")
+    dispatch(loginRequest({email: emailAdmin,password:passwordAdmin}))
+    .then(()=> {
+      success("You are logged as Admin!")
+      navigate("/")
+    })
+    .catch((res) => error(res.status, res.statusText))
+  }
 
   return (
     <Flex
@@ -156,7 +169,7 @@ function LoginForm() {
               </Link>
             </Stack>
             <Stack>
-              <button className="font-Avenir font-bold pt-5 text-md" style={{letterSpacing:"2px"}}> Continue as Admin</button>
+              <button onClick={handleLoginAdmin} className="font-Avenir font-bold pt-5 text-md" style={{letterSpacing:"2px"}}> Continue as Admin</button>
               <FontAwesomeIcon icon={faUserShield} />
             </Stack>
           </Stack>
