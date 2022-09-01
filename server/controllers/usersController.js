@@ -12,7 +12,7 @@ exports.admin = (req, res) => {
 
 // editar users
 exports.profile = (req, res) => {
-  const userId = req.params.id;
+  const userId = req.user.id;
 
   User.update(req.body, {
     where: { id: userId },

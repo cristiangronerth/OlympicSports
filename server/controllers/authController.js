@@ -1,9 +1,10 @@
 const { CartUser, User } = require("../models");
 const { generateToken } = require("../config/tokens");
+const tokens = require("../config/tokens");
 
 const { OAuth2Client } = require("google-auth-library");
 const client = new OAuth2Client(
-  "860870041014-ouinu3c3c7162n61tuqnlubvrv7dlv3i.apps.googleusercontent.com"
+  "336004849748-vtovunbqsc7lt3jnel0tqvjus3406cph.apps.googleusercontent.com"
 );
 
 // register
@@ -72,10 +73,10 @@ exports.googlelogin = (req, res) => {
     .verifyIdToken({
       idToken: credential,
       audience:
-        "860870041014-ouinu3c3c7162n61tuqnlubvrv7dlv3i.apps.googleusercontent.com",
+        "336004849748-vtovunbqsc7lt3jnel0tqvjus3406cph.apps.googleusercontent.com",
     })
     .then((userInfo) => {
-      const { email, given_name, family_name } = userInfo.payload;
+      const { email, given_name, family_name, jti } = userInfo.payload;
 
       let password = email + email;
 
@@ -88,6 +89,11 @@ exports.googlelogin = (req, res) => {
             password: password,
             name: given_name,
             lastname: family_name,
+            state: jti,
+            city: jti,
+            address: jti,
+            zip: 123,
+            phone: 123
           }).then((user) => {
             user.validatePassword(password).then((isValid) => {
               if (!isValid) return res.send(401);

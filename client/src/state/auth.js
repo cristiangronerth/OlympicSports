@@ -2,17 +2,7 @@ import { createAsyncThunk, createReducer } from "@reduxjs/toolkit";
 import axios from "axios";
 
 export const registerRequest = createAsyncThunk("REGISTER", ({name,lastname,email,password,state,city,address,zip,phone}) => {
-    return axios.post("/api/users/register", {
-        name: name.value,
-        lastname: lastname.value,
-        email: email.value,
-        password: password.value,
-        state: state.value,
-        city: city.value,
-        address: address.value,
-        zip: zip.value,
-        phone: phone.value,
-      })
+    return axios.post("/api/users/register", {name, lastname, email, password, state, city, address, zip, phone})
       .then(res => res.data)
 })
 
@@ -27,9 +17,12 @@ export const loginRequest = createAsyncThunk("LOGIN", ({email,password}) => {
       })
 })
 
-export const getProfile = createAsyncThunk("GET_PROFILE", () => {
+export const getProfile = createAsyncThunk("GET_PROFILE", (setUserAdmin) => {
     return axios.get("/api/users/me")
-      .then(res => res.data)
+      .then(user => {
+        setUserAdmin(user.data.admin)
+        return user.data
+      })
 })
 
 export const getProfile2 = createAsyncThunk("GET_PROFILE", (setUser) => {

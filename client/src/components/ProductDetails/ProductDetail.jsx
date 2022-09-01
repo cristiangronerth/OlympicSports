@@ -57,8 +57,6 @@ function ProductDetail() {
     const showCart = await setShowCart("cart cart-active")
   };
 
-  console.log(product)
-
   return (
     <>
       {product.map((item, i) => (

@@ -30,6 +30,9 @@ function RegisterForm() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  const { register, handleSubmit, reset, formState: { errors },} = useForm();
+
+
   const handleRegister = (e) => {
     e.preventDefault()
     log("register attempt...")
@@ -70,17 +73,10 @@ function RegisterForm() {
     FetchCities()
   },[state.value])
 
-  const { register, handleSubmit, formState: {errors} } = useForm()
-
-  const onSubmit = (data) => {
-    dispatch(registerRequest({name: data.name,lastname: data.lastname,email: data.email,password: data.password,state: state.value,city: city.value,address: data.address,zip: data.zip,phone: data.phone}))
-    navigate("/login")
-  }
-
   return (
     <Flex minH={"89vh"} align={"center"} justify={"center"} className="sm:flex-col xl:flex-row">
     <Img className="relative mr-20 imgLeft" src={leftRegister} alt="" height={500} width={500}/>
-      <Stack spacing={8} className="lg:w-[550px] mx-20" py={12} px={6} as={'form'} onSubmit={handleSubmit(onSubmit)}>
+      <Stack spacing={8} className="lg:w-[550px] mx-20" py={12} px={6} as={'form'} onSubmit={handleRegister}>
         <Stack align={"center"}>
           <h1 className="font-Avenir text-4xl">
             Register
@@ -93,30 +89,28 @@ function RegisterForm() {
               <Box w='full'>
                 <FormControl>
                   <FormLabel className="font-Avenir"><span className="text-xs" style={{letterSpacing:"2px"}} >NAME</span></FormLabel>
-                  <Input borderColor='black' focusBorderColor="black" type="text" name="name"  {...register("name", { required: true })}  />
+                  <Input borderColor='black' focusBorderColor="black" type="text" {...name}/>
                 </FormControl>
               </Box>
 
               <Box w='full'>
                 <FormControl>
                   <FormLabel className="font-Avenir"><span className="text-xs" style={{letterSpacing:"2px"}} >LASTNAME</span></FormLabel>
-                  <Input borderColor='black' focusBorderColor="black" type="text" name="lastname" {...register("lastname", { required:true })}/>
+                  <Input borderColor='black' focusBorderColor="black" type="text" {...lastname}/>
                 </FormControl>
               </Box>
             </HStack>
 
             <FormControl>
               <FormLabel className="font-Avenir"><span className="text-xs" style={{letterSpacing:"2px"}} >EMAIL</span></FormLabel>
-              <Input borderColor='black' focusBorderColor="black" type="email" name="email" {...register("email", { required:true, pattern: {
-                      value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                    } })}/>
+              <Input borderColor='black' focusBorderColor="black" type="email" {...email}/>
             </FormControl>
 
             <FormControl>
               <div>
                 <FormLabel className="font-Avenir"><span className="text-xs float-left mb-1" style={{letterSpacing:"2px"}}>PASSWORD</span></FormLabel>
               </div>
-              <Input borderColor='black' focusBorderColor="black" type="password" minWidth="350px" {...register("password", { required:true, minLength:4 })} />
+              <Input borderColor='black' focusBorderColor="black" type="password" minWidth="350px" {...password} />
             </FormControl>
 
             <HStack>
@@ -145,33 +139,28 @@ function RegisterForm() {
               <Box>
                 <FormControl>
                   <FormLabel className="font-Avenir"><span className="text-xs" style={{letterSpacing:"2px"}} >ZIP</span></FormLabel>
-                  <Input borderColor='black' focusBorderColor="black" type="number" {...register("zip", { required:true })}/>
+                  <Input borderColor='black' focusBorderColor="black" type="text" {...zip}/>
                 </FormControl>
               </Box>
             </HStack>
 
             <FormControl>
                   <FormLabel className="font-Avenir"><span className="text-xs" style={{letterSpacing:"2px"}} >ADRESS</span></FormLabel>
-                  <Input borderColor='black' focusBorderColor="black" type="tel" {...register("address", { required:true })}/>
+                  <Input borderColor='black' focusBorderColor="black" type="tel" {...address}/>
             </FormControl>
 
             <FormControl>
                   <FormLabel className="font-Avenir"><span className="text-xs" style={{letterSpacing:"2px"}} >PHONE</span></FormLabel>
-                  <Input borderColor='black' focusBorderColor="black" type="tel" {...register("phone", { required:true })}/>
+                  <Input borderColor='black' focusBorderColor="black" type="tel" {...phone}/>
             </FormControl>
 
-            {errors.name?.type === "required" && <span className="text-red-500">* Name field cant be empty </span>}
-            {errors.lastname?.type === "required" && <span className="text-red-500">* Lastname field cant be empty </span>}
-            {errors.email?.type === "required" && <span className="text-red-500">* Email field cant be empty </span>}
-            {errors.password?.type === "minLength" && <span className="text-red-500">* Your password must have at least 4 characters </span>}
-            {errors.zip?.type === "required" && <span className="text-red-500">* Zip field cant be empty </span>}
-            {errors.address?.type === "required" && <span className="text-red-500">* Address field cant be empty </span>}
-            {errors.phone?.type === "required" && <span className="text-red-500">* Phone field cant be empty </span>}
             <Stack spacing={10}>
               <button className="font-Avenir font-bold pt-5 text-md" style={{letterSpacing:"2px"}}>REGISTER</button>
               <Link to="/login" className="font-Avenir text-sm text-center hover:no-underline">Back to Login</Link>
             </Stack>
 
+            
+          
           </Stack>
         </Box>
       </Stack>

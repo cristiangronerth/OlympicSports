@@ -14,12 +14,12 @@ import { getProfile } from "../../state/auth";
 
 import axios from "axios";
 import styled from "styled-components";
+import { changeProfile } from "../../state/user";
 
 export default function ProfileForm() {
 
   const name = useInput("name");
   const lastname = useInput("lastname");
-  const email = useInput("email");
   const state = useInput("state");
   const city = useInput("city");
   const address = useInput("address");
@@ -34,8 +34,8 @@ export default function ProfileForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-   
+    dispatch(changeProfile({name,lastname,state,city,address,zip,phone}))
+    navigate("/")
   }
 
   const [states,setStates] = useState([]);
@@ -107,11 +107,6 @@ export default function ProfileForm() {
               </Box>
             </HStack>
 
-            <FormControl>
-              <FormLabel className="font-Avenir"><span className="text-xs" style={{letterSpacing:"2px"}} >EMAIL</span></FormLabel>
-              <Input placeholder={user.email} borderColor='black' focusBorderColor="black" type="email" {...email}/>
-            </FormControl>
-
             <HStack>
               <Box minW='150px' maxW='150px'>
                 <FormControl>
@@ -155,7 +150,7 @@ export default function ProfileForm() {
             
 
             <Stack spacing={10}>
-              <button className="font-Avenir font-bold pt-5 text-md" style={{letterSpacing:"2px"}}>Apply Changes</button>
+              <button className="font-Avenir font-bold pt-5 text-md" style={{letterSpacing:"2px"}} onClick={handleSubmit} >Apply Changes</button>
               <Link to="/forgotpassword" className="font-Avenir text-sm text-center hover:no-underline">Forgot password?</Link>
               <Link to="/" className="font-Avenir text-sm text-center hover:no-underline">Back to Home</Link>
             </Stack>
