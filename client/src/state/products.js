@@ -90,8 +90,10 @@ export const getProduct2 = createAsyncThunk("GET_PRODUCT", async (productId) => 
 export const getSearchProduct = createAsyncThunk(
   "GET_SEARCHPRODUCT",
   async ({ setItems , searchValue}) => {
+    console.log("acaaaaaa",searchValue)
     try {
       const res = await axios.get(`/api/products/getProduct/${searchValue}`);
+      console.log("ACAAA2",searchValue)
       setItems(res.data);
       return res.data
     } catch (err) {
@@ -99,7 +101,7 @@ export const getSearchProduct = createAsyncThunk(
     }
   }
 );
-
+ 
 const productReducer = createReducer(
   {},
   {

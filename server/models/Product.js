@@ -33,10 +33,6 @@ Product.init(
       type: DataTypes.TEXT,
       allowNull: false,
     },
-    // size: {
-    //   type: DataTypes.ARRAY(DataTypes.STRING),
-    //   allowNull: false,
-    // },
     size: {
       type: DataTypes.ARRAY(DataTypes.STRING),
       allowNull: false,
