@@ -15,7 +15,7 @@ function Other() {
       </Icon>
       <Social>
         <img src={facebook} alt="facebook page" />
-        <img src={instagram} alt="instagram page" />
+        <a href="https://www.instagram.com/olympicsports833/" alt="" target="_blank" ><img src={instagram} alt="instagram page" /></a>
       </Social>
     </OtherSection>
   );

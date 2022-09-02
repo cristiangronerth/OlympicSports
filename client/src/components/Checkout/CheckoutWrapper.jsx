@@ -61,10 +61,10 @@ function CheckoutWrapper({ cartItems }) {
                   <div className="cardNumber">
                     <p className="title">Credit card number</p>
                     <br />
-                    <input type="text" className="number" />
-                    <input type="text" className="number" />
-                    <input type="text" className="number" />
-                    <input type="text" className="number" />
+                    <input type="number" className="number" />
+                    <input type="number" className="number" />
+                    <input type="number" className="number" />
+                    <input type="number" className="number" />
                   </div>
                   <div className="cardHolderName">
                     <p className="title">Card holder name</p>
@@ -111,7 +111,7 @@ function CheckoutWrapper({ cartItems }) {
                     <p className="title">Security</p>
                   </div>
                   <div className="secutiryInput">
-                    <input type="text" />
+                    <input type="number" />
                   </div>
                   <button className="checkoutbtn" onClick={cartItemsHandler}>
                     Checkout

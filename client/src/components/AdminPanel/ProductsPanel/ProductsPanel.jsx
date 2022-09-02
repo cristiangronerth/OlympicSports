@@ -1,4 +1,3 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import Navbar from "../../../common/Navbar";
@@ -6,15 +5,18 @@ import { getAllProducts } from "../../../state/products";
 import Footer from "../../Footer/Footer";
 import ProductsItem from "./ProductsItem";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import AddModal from "./AddModal";
+
 const ProductsPanel = () => {
-
-
+  const [showModal2, setShowModal2] = React.useState(false);
   const [products, setProducts] = useState([]);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getAllProducts(setProducts))
+    dispatch(getAllProducts(setProducts));
   }, []);
 
   return (
@@ -32,10 +34,22 @@ const ProductsPanel = () => {
                     <th className="py-3 px-6 text-center">CATEGORIA</th>
                     <th className="py-3 px-6 text-center">PRECIO</th>
                     <th className="py-3 px-6 text-center">MODICFICAR</th>
+                    <th className="py-3 px-6 text-center">
+                      <button onClick={() => setShowModal2(true)}>
+                        <FontAwesomeIcon
+                          style={{ height: "20px"}}
+                          icon={faPlus}
+                        />
+                      </button>
+                    </th>
                   </tr>
                 </thead>
                 {products.map((producto, i) => (
-                  <ProductsItem key={i} producto={producto} setProducts={setProducts}></ProductsItem>
+                  <ProductsItem
+                    key={i}
+                    producto={producto}
+                    setProducts={setProducts}
+                  ></ProductsItem>
                 ))}
               </table>
             </div>
@@ -43,6 +57,9 @@ const ProductsPanel = () => {
         </div>
       </div>
       <Footer />
+      {showModal2 ? (
+        <AddModal setShowModal={setShowModal2} setProducts={setProducts} />
+      ) : null}
     </>
   );
 };

@@ -4,7 +4,6 @@ const { Op } = require("sequelize");
 exports.createProduct = (req, res) => {
   const {
     name,
-    image,
     color,
     description,
     size,
@@ -26,7 +25,6 @@ exports.createProduct = (req, res) => {
     if (!product) {
       Product.create({
         name,
-        image,
         color,
         description,
         size,

@@ -11,7 +11,7 @@ import Pagination from "../../common/Pagination/Pagination";
 export default function ShirtsCategory() {
   const [shirts, setShirts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(12);
+  const [postsPerPage] = useState(15);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -32,7 +32,7 @@ export default function ShirtsCategory() {
 
   return (
     <>
-      <SimpleGrid minChildWidth="500px" spacing="30px">
+      <SimpleGrid minChildWidth="400px" spacing="30px">
         {currentPost.map((item, i) => (
           <Link key={i} to={`/product/${item.id}`}>
             <Card item={item} />
