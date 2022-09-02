@@ -909,7 +909,7 @@ Product.bulkCreate([
     brand: "Topper",
     price: 13,
     stock: 4,
-    categoria: "Shorts"
+    categoria: "Short"
   },
   {
     name: "Short Launch 7 Under Armour Under Armour Tienda Oficial",
@@ -923,7 +923,7 @@ Product.bulkCreate([
     brand: "Under Armour ",
     price: 45,
     stock: 4,
-    categoria: "shorts"
+    categoria: "short"
   },
   {
     name: "Short adidas Aeroready Gl4383 Hombre",
@@ -937,7 +937,7 @@ Product.bulkCreate([
     brand: "Adidas",
     price: 36,
     stock: 4,
-    categoria: "shorts"
+    categoria: "short"
   },
   {
     name: "Remera Puma Individual Final Jersey Training",
@@ -951,7 +951,7 @@ Product.bulkCreate([
     brand: "Puma",
     price: 55,
     stock: 4,
-    categoria: "t-shirts"
+    categoria: "shirts"
   },
   {
     name: "Remera Nike Df Wild Run Miler Gx Hombre -newsport",
@@ -965,7 +965,7 @@ Product.bulkCreate([
     brand: "Nike",
     price: 42,
     stock: 4,
-    categoria: "t-shirts"
+    categoria: "shirts"
   },
   {
     name: "Remera Nike Running Humor Hombre Bl Tienda Oficial",
@@ -979,7 +979,7 @@ Product.bulkCreate([
     brand: "Nike",
     price: 59,
     stock: 4,
-    categoria: "t-shirts"
+    categoria: "shirts"
   },
 
 ]);
