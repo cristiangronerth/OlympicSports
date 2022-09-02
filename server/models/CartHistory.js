@@ -1,5 +1,5 @@
 const {Model, DataTypes} = require("sequelize");
-const sequelize = require("../db/db")
+const sequelize = require("../config/db/db")
 
 
 class CartHistory extends Model {

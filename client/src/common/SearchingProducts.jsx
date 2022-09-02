@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { SimpleGrid } from "@chakra-ui/react";
 import axios from "axios";
@@ -14,7 +14,7 @@ const SearchingProducts = () => {
   const [searchValue, setSearchValue] = useState("");
   const [items, setItems] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(10);
+  const [postsPerPage] = useState(12);
   const dispatch = useDispatch();
 
   const handleSearchProduct = (e) => {
@@ -39,7 +39,7 @@ const SearchingProducts = () => {
   
   const [allProducts, setAllProducts] = useState([]);
   const [currentPage2, setCurrentPage2] = useState(1);
-  const [postsPerPage2] = useState(10);
+  const [postsPerPage2] = useState(12);
 
   useEffect(() => {
     axios

@@ -1,16 +1,12 @@
-import axios from "axios";
-import React, { useState } from "react";
+import React from "react";
 import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
+import { editProduct } from "../../../state/admin";
+import { getAllProducts } from "../../../state/products";
 
-const ModalForm = ({ producto }) => {
-  //   const name = useInput("name");
-  //   const color = useInput("color");
-  //   const description = useInput("description");
-  //   const size = useInput("size");
-  //   const brand = useInput("brand");
-  //   const price = useInput("price");
-  //   const stock = useInput("stock");
-  //   const categoria = useInput("categoria");
+const ModalForm = ({ producto, setShowModal, setProducts }) => {
+
+  const dispatch = useDispatch()
 
   const {
     register,
@@ -18,15 +14,17 @@ const ModalForm = ({ producto }) => {
     formState: { errors },
   } = useForm();
 
-  const [update, setUpdate] = useState([]);
-  const onSubmit = (data) => {
-    axios.put(`/api/products/updateProduct/${producto.id}`, {data})
+  const onSubmit = async (data) => {
+    const edit = await dispatch(editProduct({producto,data}))
+    const getall = await dispatch(getAllProducts(setProducts))
+    const close = await setShowModal(false)
   };
+
   return (
     <div className="relative p-6 flex-auto">
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" for="name">
+          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">
             Name
           </label>
           <input
@@ -42,7 +40,7 @@ const ModalForm = ({ producto }) => {
           )}
         </div>
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" for="color">
+          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="color">
             color
           </label>
           <input
@@ -58,7 +56,7 @@ const ModalForm = ({ producto }) => {
         </div>
 
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" for="size">
+          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="size">
             Size
           </label>
           <input
@@ -73,7 +71,7 @@ const ModalForm = ({ producto }) => {
           )}
         </div>
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" for="brand">
+          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="brand">
             Brand
           </label>
           <input
@@ -88,7 +86,7 @@ const ModalForm = ({ producto }) => {
           )}
         </div>
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" for="price">
+          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="price">
             Price
           </label>
           <input
@@ -103,7 +101,7 @@ const ModalForm = ({ producto }) => {
           )}
         </div>
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" for="stock">
+          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="stock">
             Stock
           </label>
           <input
@@ -120,7 +118,7 @@ const ModalForm = ({ producto }) => {
         <div className="mb-4">
           <label
             className="block text-gray-700 text-sm font-bold mb-2"
-            for="categoria"
+            htmlFor="categoria"
           >
             Categoria
           </label>
@@ -141,7 +139,7 @@ const ModalForm = ({ producto }) => {
         <div className="mb-4">
           <label
             className="block text-gray-700 text-sm font-bold mb-2"
-            for="description"
+            htmlFor="description"
           >
             Description
           </label>
@@ -159,7 +157,7 @@ const ModalForm = ({ producto }) => {
           )}
         </div>
 
-        <button className="bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150">
+        <button onSubmit={onSubmit} className="bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150">
           Save Changes
         </button>
       </form>

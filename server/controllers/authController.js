@@ -27,6 +27,9 @@ exports.register = (req, res) => {
 exports.login = (req, res) => {
   const { email, password } = req.body;
 
+  console.log(email)
+  console.log(password)
+
   User.findOne({ where: { email } }).then((user) => {
     if (!user) return res.sendStatus(401);
     user.validatePassword(password).then((isValid) => {
@@ -93,7 +96,8 @@ exports.googlelogin = (req, res) => {
             city: jti,
             address: jti,
             zip: 123,
-            phone: 123
+            phone: 123,
+            admin: false
           }).then((user) => {
             user.validatePassword(password).then((isValid) => {
               if (!isValid) return res.send(401);
@@ -103,7 +107,7 @@ exports.googlelogin = (req, res) => {
                 email: user.email,
                 name: user.name,
                 lastname: user.lastname,
-                admin: user.admin,
+                admin: user.admin
               };
               const token = tokens.generateToken(payload);
               res.cookie("token", token);
@@ -120,6 +124,7 @@ exports.googlelogin = (req, res) => {
             email: user.email,
             name: user.name,
             lastname: user.lastname,
+            admin: user.admin
           };
           const token = tokens.generateToken(payload);
           res.cookie("token", token);

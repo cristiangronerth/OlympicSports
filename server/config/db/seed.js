@@ -1,4 +1,4 @@
-const { Product, User } = require("../models");
+const { Product, User } = require("../../models");
 
 //Crear un usuario administrador para ser usado en el auto-login (demo)
 User.create(

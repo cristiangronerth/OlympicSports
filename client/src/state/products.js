@@ -1,6 +1,5 @@
 import { createAsyncThunk, createReducer } from "@reduxjs/toolkit";
 import axios from "axios";
-import SearchProducts from "../pages/SearchProducts";
 
 export const getAllShirts = createAsyncThunk(
   "GET_ALL_SHIRTS",
@@ -101,6 +100,27 @@ export const getSearchProduct = createAsyncThunk(
     }
   }
 );
+
+export const getAllProducts = createAsyncThunk( "GET_SEARCHPRODUCT", async (setProducts) => {
+    try {
+      const res = await axios.get("/api/products/getAllProducts")
+      setProducts(res.data);
+      return res.data
+    } catch (err) {
+      return err.message;
+    }
+  }
+);
+
+export const deleteProduct = createAsyncThunk("DELETE_PRODUCT", async (producto) => {
+  try {
+    const res = await axios.delete(`/api/products/deleteProduct/${producto.id}`)
+    return res.data
+  } catch (err) {
+    return err.message;
+  }
+}
+);
  
 const productReducer = createReducer(
   {},
@@ -112,6 +132,7 @@ const productReducer = createReducer(
     [getAllAccesories.fulfilled]: (state, action) => action.payload,
     [getProduct.fulfilled]: (state, action) => action.payload,
     [getSearchProduct.fulfilled]: (state, action) => action.payload,
+    [getAllProducts.fulfilled]: (state, action) => action.payload,
   }
 );
 

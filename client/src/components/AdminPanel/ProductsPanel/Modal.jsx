@@ -1,8 +1,7 @@
 import React from "react";
-import styled from "styled-components";
 import ModalForm from "./ModalForm";
 
-function Modal({ producto, setShowModal }) {
+function Modal({ producto, setShowModal, setProducts }) {
   return (
     <>
       <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
@@ -22,7 +21,7 @@ function Modal({ producto, setShowModal }) {
               </button>
             </div>
             {/*body*/}
-            <ModalForm producto={producto} />
+            <ModalForm producto={producto} setProducts={setProducts} setShowModal={setShowModal} />
 
             {/*footer*/}
             <div className="flex items-center justify-end p-6 border-t border-solid border-slate-200 rounded-b">
