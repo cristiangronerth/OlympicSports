@@ -34,7 +34,7 @@ exports.createCartHistory = (req, res) => {
         quantityForProduct: productsIdsAndQuantity[1],
         userId: id,
       }).then((cartHistory) => {
-        CartUser.findOne({ where: { userId: 1 } })
+        CartUser.findOne({ where: { userId: id } })
           .then((cartUser) => {
             CartHistory.update(
               { total: cartUser.dataValues.total },

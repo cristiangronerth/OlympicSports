@@ -9,10 +9,10 @@ const Pagination = ({ postsPerPage, totalPosts, paginate, link }) => {
   }
 
   return (
-    <div class="flex items-center justify-center  ">
-      <nav class="isolate inline-flex -space-x-px rounded-md ">
-        {pageNumbers.map((number) => (
-          <Link onClick={() => paginate(number)} to={link}>
+    <div className="flex items-center justify-center  ">
+      <nav className="isolate inline-flex -space-x-px rounded-md ">
+        {pageNumbers.map((number,i) => (
+          <Link key={i} onClick={() => paginate(number)} to={link}>
             <li
               key={number}
               className=" relative z-10 inline-flex items-center border border-white bg-black px-4 py-2 text-4xl hover:bg-yellow-800 font-medium text-white focus:z-20"

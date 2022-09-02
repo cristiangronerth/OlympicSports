@@ -1,11 +1,24 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+
+import { deleteProduct, getAllProducts } from "../../../state/products";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUserShield, faPen } from "@fortawesome/free-solid-svg-icons";
+import { faPen, faTrash } from "@fortawesome/free-solid-svg-icons";
 import Modal from "./Modal";
 
-const ProductsItem = ({ producto }) => {
+
+const ProductsItem = ({ producto, setProducts }) => {
+
   const [showModal, setShowModal] = React.useState(false);
 
+  const dispatch = useDispatch()
+
+  const handleDelete = async () => {
+    const deleteP = await dispatch(deleteProduct(producto))
+    const getall = await dispatch(getAllProducts(setProducts))
+  }
+  
   return (
     <>
       <tbody className="text-gray-600 text-sm font-light">
@@ -37,6 +50,11 @@ const ProductsItem = ({ producto }) => {
                   <FontAwesomeIcon icon={faPen} />
                 </button>
               </div>
+              <div className="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
+              <button onClick={handleDelete}>
+                <FontAwesomeIcon icon={faTrash} />
+              </button>
+            </div>
               <div className="w-4 mr-2 transform hover:text-purple-500 hover:scale-110"></div>
               <div className="w-4 mr-2 transform hover:text-purple-500 hover:scale-110"></div>
             </div>
@@ -46,7 +64,7 @@ const ProductsItem = ({ producto }) => {
 
       {/* popUp */}
       {showModal ? (
-       <Modal producto={producto} setShowModal={setShowModal}/>
+       <Modal producto={producto} setShowModal={setShowModal} setProducts={setProducts}/>
       ) : null}
     </>
   );

@@ -5,7 +5,6 @@ const usersRouter = require("./users");
 const productsRouter = require("./products");
 const cartUserRouter = require("./cartUser");
 const cartItemRouter = require("./cartItem");
-const { validateAuth } = require("../middleware/auth");
 const cartHistoryRouter = require("./cartHistory");
 const checkoutRouter = require("./checkout")
 

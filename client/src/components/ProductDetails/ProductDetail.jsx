@@ -92,7 +92,7 @@ function ProductDetail() {
               </ProductTitle>
 
               <ProductPriceInfo>
-                <p>$ {item.price} usd</p>
+                <p>$ {item.price + 25} usd</p>
                 <h3>$ {item.price} USD</h3>
               </ProductPriceInfo>
 

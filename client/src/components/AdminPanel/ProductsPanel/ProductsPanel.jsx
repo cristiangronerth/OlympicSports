@@ -1,23 +1,27 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import Navbar from "../../../common/Navbar";
+import { getAllProducts } from "../../../state/products";
 import Footer from "../../Footer/Footer";
 import ProductsItem from "./ProductsItem";
 
 const ProductsPanel = () => {
+
+
   const [products, setProducts] = useState([]);
 
+  const dispatch = useDispatch();
+
   useEffect(() => {
-    axios
-      .get("/api/products/getAllProducts")
-      .then((productos) => setProducts(productos.data));
+    dispatch(getAllProducts(setProducts))
   }, []);
 
   return (
     <>
       <Navbar />
       <div className="overflow-x-auto mt-32">
-        <div className="min-w-screen min-h-screen bg-gray-100 flex items-center justify-center bg-gray-100 font-sans overflow-hidden">
+        <div className="min-w-screen min-h-screen bg-gray-100 flex items-center justify-center font-sans overflow-hidden">
           <div className="w-full lg:w-5/6">
             <div className="bg-white shadow-md rounded my-6">
               <table className="min-w-max w-full table-auto">
@@ -31,7 +35,7 @@ const ProductsPanel = () => {
                   </tr>
                 </thead>
                 {products.map((producto, i) => (
-                  <ProductsItem key={i} producto={producto}></ProductsItem>
+                  <ProductsItem key={i} producto={producto} setProducts={setProducts}></ProductsItem>
                 ))}
               </table>
             </div>

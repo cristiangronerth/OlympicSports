@@ -12,7 +12,7 @@ const SearchPagination = ({ postsPerPage2, totalPosts2, paginate2, link }) => {
     <div className="flex items-center justify-center  ">
       <nav className="isolate inline-flex -space-x-px rounded-md ">
         {pageNumbers.map((number,i) => (
-          <Link onClick={() => paginate2(number)} to={link}>
+          <Link key={i} onClick={() => paginate2(number)} to={link}>
             <li
               key={i+1}
               className=" relative z-10 inline-flex items-center border border-white bg-black px-4 py-2 text-4xl hover:bg-yellow-800 font-medium text-white focus:z-20"

@@ -1,5 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import logger from "redux-logger"
+import adminReducer from "./admin";
 
 
 import authReducer from "./auth";
@@ -18,7 +19,8 @@ const store = configureStore({
         cartItems: cartItemReducer,
         cartUser: cartUserReducer,
         checkout: checkoutReducer,
-        history: cartHistoryReducer
+        history: cartHistoryReducer,
+        admin: adminReducer
     }
 })
 

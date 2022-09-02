@@ -1,5 +1,5 @@
 const {Model, DataTypes} = require("sequelize");
-const sequelize = require("../db/db")
+const sequelize = require("../config/db/db")
 const bcrypt = require("bcrypt")
 
 
@@ -76,13 +76,13 @@ User.init(
     });
   });
 
-  User.beforeUpdate((user) => {
-    const salt = bcrypt.genSaltSync();
-    user.salt = salt;
+  // User.beforeUpdate((user) => {
+  //   const salt = bcrypt.genSaltSync();
+  //   user.salt = salt;
   
-    return user.hash(user.password, user.salt).then((hash) => {
-      user.password = hash;
-    });
-  })
+  //   return user.hash(user.password, user.salt).then((hash) => {
+  //     user.password = hash;
+  //   });
+  // })
 
   module.exports = User
