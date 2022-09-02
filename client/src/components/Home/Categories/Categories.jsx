@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Btn from "../../../common/Btn";
 import Category from "./Category";
@@ -8,7 +9,7 @@ function Categories() {
     <CategoryList>
       <Category />
       <ArrowButton>
-        <Btn title="GO TO SHOP" />
+        <Link to="/categories"><Btn title="GO TO SHOP" /></Link>
       </ArrowButton>
     </CategoryList>
   );

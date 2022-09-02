@@ -112,15 +112,9 @@ export const getAllProducts = createAsyncThunk( "GET_SEARCHPRODUCT", async (setP
   }
 );
 
-export const deleteProduct = createAsyncThunk("DELETE_PRODUCT", async (producto) => {
-  try {
-    const res = await axios.delete(`/api/products/deleteProduct/${producto.id}`)
-    return res.data
-  } catch (err) {
-    return err.message;
-  }
-}
-);
+
+
+
  
 const productReducer = createReducer(
   {},

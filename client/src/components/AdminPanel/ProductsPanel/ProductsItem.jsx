@@ -1,24 +1,23 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 
-import { deleteProduct, getAllProducts } from "../../../state/products";
+import { getAllProducts } from "../../../state/products";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPen, faTrash } from "@fortawesome/free-solid-svg-icons";
 import Modal from "./Modal";
-
+import { deleteProduct } from "../../../state/admin";
 
 const ProductsItem = ({ producto, setProducts }) => {
-
   const [showModal, setShowModal] = React.useState(false);
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const handleDelete = async () => {
-    const deleteP = await dispatch(deleteProduct(producto))
-    const getall = await dispatch(getAllProducts(setProducts))
-  }
-  
+    const deleteP = await dispatch(deleteProduct(producto));
+    const getall = await dispatch(getAllProducts(setProducts));
+  };
+
   return (
     <>
       <tbody className="text-gray-600 text-sm font-light">
@@ -51,10 +50,10 @@ const ProductsItem = ({ producto, setProducts }) => {
                 </button>
               </div>
               <div className="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
-              <button onClick={handleDelete}>
-                <FontAwesomeIcon icon={faTrash} />
-              </button>
-            </div>
+                <button onClick={handleDelete}>
+                  <FontAwesomeIcon icon={faTrash} />
+                </button>
+              </div>
               <div className="w-4 mr-2 transform hover:text-purple-500 hover:scale-110"></div>
               <div className="w-4 mr-2 transform hover:text-purple-500 hover:scale-110"></div>
             </div>
@@ -64,7 +63,11 @@ const ProductsItem = ({ producto, setProducts }) => {
 
       {/* popUp */}
       {showModal ? (
-       <Modal producto={producto} setShowModal={setShowModal} setProducts={setProducts}/>
+        <Modal
+          producto={producto}
+          setShowModal={setShowModal}
+          setProducts={setProducts}
+        />
       ) : null}
     </>
   );

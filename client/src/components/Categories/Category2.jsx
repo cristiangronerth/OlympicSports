@@ -39,7 +39,7 @@ const ArticleList = () => {
   return (
     <section className="text-gray-600 body-font overflow-hidden">
       {categoria.map((cat, i) => (
-        <div className="container px-5 py-24 mx-auto mt-2">
+        <div key={i} className="container px-5 py-24 mx-auto mt-2">
           <div className="lg:w-4/5 mx-auto flex flex-wrap ">
             <div className="lg:w-1/2 w-full lg:pr-10 lg:py-6 mb-6 lg:mb-0 mt-12">
               <h2 className="text-sm title-font text-gray-500 tracking-widest">

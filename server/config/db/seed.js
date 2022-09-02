@@ -324,21 +324,6 @@ Product.bulkCreate([
     stock: 4,
     categoria: "shirts"
   },
-
-  {
-    name: "Remera Active",
-    image:"https://imgur.com/0mzIEAV.png",
-    image1:"https://http2.mlstatic.com/D_NQ_NP_2X_736592-MLA48419253303_122021-F.webp",
-    image2:"https://http2.mlstatic.com/D_NQ_NP_2X_665447-MLA48419253304_122021-F.webp",
-    image3:"https://http2.mlstatic.com/D_NQ_NP_2X_900255-MLA48419253302_122021-F.webp",
-    color: "Black",
-    description:"Every day you will open your closet and choose this excellent performance t-shirt again and again. It has flatlock seams to prevent chafing during training sessions and dryCELL, PUMA's signature technology to wick away moisture. Thus, this model will help you to continue and continue even in the toughest workouts.",
-    size: ["XS","S","M","L","XL","XXL","XXXL"],
-    brand: "Puma",
-    price: 45,
-    stock: 4,
-    categoria: "shirts"
-  },
   {
     name: "Remera Aeroready",
     image:"https://imgur.com/ln8xdbV.png",
@@ -760,7 +745,7 @@ Product.bulkCreate([
     categoria: "shoes"
   },
   {
-    name: "Zapatillas Showtheway adidas Sport 78 Tienda Oficial",
+    name: "Zapatillas Showtheway",
     image:"https://imgur.com/8PMX1qj.png",
     image1:"https://http2.mlstatic.com/D_NQ_NP_2X_732906-MLA49006815106_022022-F.webp",
     image2:"https://http2.mlstatic.com/D_NQ_NP_2X_725529-MLA49006815101_022022-F.webp",
@@ -774,7 +759,7 @@ Product.bulkCreate([
     categoria: "shoes"
   },
   {
-    name: "Zapatillas Puma Flyer Flex Running Ngo/bco Hombre",
+    name: "Zapatillas Puma Flyer",
     image:"https://imgur.com/jqVpLvZ.png",
     image1:"https://http2.mlstatic.com/D_NQ_NP_2X_869482-MLA49773917487_042022-F.webp",
     image2:"https://http2.mlstatic.com/D_NQ_NP_2X_965402-MLA49773917484_042022-F.webp",
@@ -788,7 +773,7 @@ Product.bulkCreate([
     categoria: "shoes"
   },
   {
-    name: "Zapatilla Original Puma Caven Adp Blanca Unisex",
+    name: "Zapatilla Original",
     image:"https://imgur.com/gqudAmP.png",
     image1:"https://http2.mlstatic.com/D_NQ_NP_2X_761199-MLA50783612817_072022-F.webp",
     image2:"https://http2.mlstatic.com/D_NQ_NP_2X_639140-MLA50783612819_072022-F.webp",
@@ -802,7 +787,7 @@ Product.bulkCreate([
     categoria: "shoes"
   },
   {
-    name: "Zapatilla Puma Original X-ray Square Better",
+    name: "Zapatilla Puma Original",
     image:"https://imgur.com/f709k4l.png",
     image1:"https://http2.mlstatic.com/D_NQ_NP_2X_812503-MLA50332741278_062022-F.webp",
     image2:"https://http2.mlstatic.com/D_NQ_NP_2X_913475-MLA50332741276_062022-F.webp",
@@ -816,7 +801,7 @@ Product.bulkCreate([
     categoria: "shoes"
   },
   {
-    name: "Zapatillas Air Zoom Vomero 16 Nike Nike Tienda Oficial",
+    name: "Zapatillas Air Zoom",
     image:"https://imgur.com/HQ6P2EQ.png",
     image1:"https://http2.mlstatic.com/D_NQ_NP_2X_849363-MLA49431384873_032022-F.webp",
     image2:"https://http2.mlstatic.com/D_NQ_NP_2X_842829-MLA49431384874_032022-F.webp",
@@ -825,10 +810,12 @@ Product.bulkCreate([
     description:"Tu modelo favorito de confianza para los entrenamientos diarios.Esta versión agrega una amortiguación de espuma ZoomX con respuesta inmediata que brinda un toque enérgico a tu paso, lo que es perfecto para altos kilometrajes en carretera.Es superligero, con mucha elasticidad y ventilación en la parte superior.",
     size: ["36","37","38","39","40","41","42","43","44","45","46"],
     brand: "Nike",
+    price: 92,
+    stock: 11,
     categoria: "shoes"
   },
   {
-    name: "Zapatillas Nike Downshifter 11 Hombre 0394 Nike",
+    name: "Zapatillas Nike Downshifter",
     image:"https://imgur.com/qCwsxju.png",
     image1:"https://http2.mlstatic.com/D_NQ_NP_2X_692817-MLA49850108854_052022-F.webp",
     image2:"https://http2.mlstatic.com/D_NQ_NP_2X_932020-MLA49850108857_052022-F.webp",
@@ -842,7 +829,7 @@ Product.bulkCreate([
     categoria: "shoes"
   },
   {
-    name: "Zapatillas Nike Mc Trainer 9185 Nike 3 Csi",
+    name: "Zapatillas Nike v2",
     image:"https://imgur.com/zp8WlLX.png",
     image1:"https://http2.mlstatic.com/D_NQ_NP_2X_922618-MLA51060892960_082022-F.webp",
     image2:"https://http2.mlstatic.com/D_NQ_NP_2X_902230-MLA51060892958_082022-F.webp",
@@ -856,7 +843,7 @@ Product.bulkCreate([
     categoria: "shoes"
   },
   {
-    name: "Pantalón Puma Neymar Thrill En Negro",
+    name: "Pantalón Puma Neymar",
     image:"https://imgur.com/04FJ8t6.png",
     image1:"https://http2.mlstatic.com/D_NQ_NP_2X_946380-MLA51339436845_082022-F.webp",
     image2:"https://http2.mlstatic.com/D_NQ_NP_2X_744761-MLA51339436846_082022-F.webp",
@@ -870,7 +857,7 @@ Product.bulkCreate([
     categoria: "pants"
   },
   {
-    name: "Pantalon Puma Moda Evostripe Core Hombre Gr Ng",
+    name: "Pantalon Puma",
     image:"https://imgur.com/ojV53yN.png",
     image1:"https://http2.mlstatic.com/D_NQ_NP_2X_842519-MLA50362374069_062022-F.webp",
     image2:"https://http2.mlstatic.com/D_NQ_NP_2X_964655-MLA50362374068_062022-F.webp",
@@ -884,7 +871,7 @@ Product.bulkCreate([
     categoria: "pants"
   },
   {
-    name: "Pantalón Nike Dri-fit Academy En Negro",
+    name: "Pantalón Nike Dri-fit",
     image:"https://imgur.com/YD9FfBX.png",
     image1:"https://http2.mlstatic.com/D_NQ_NP_2X_618907-MLA51246416909_082022-F.webp",
     image2:"https://http2.mlstatic.com/D_NQ_NP_2X_679424-MLA51246416907_082022-F.webp",
@@ -912,7 +899,7 @@ Product.bulkCreate([
     categoria: "Short"
   },
   {
-    name: "Short Launch 7 Under Armour Under Armour Tienda Oficial",
+    name: "Short Launch 7",
     image:"https://imgur.com/uDo8m2q.png",
     image1:"https://http2.mlstatic.com/D_NQ_NP_2X_644928-MLA50692101916_072022-F.webp",
     image2:"https://http2.mlstatic.com/D_NQ_NP_2X_762109-MLA50692101915_072022-F.webp",
@@ -926,7 +913,7 @@ Product.bulkCreate([
     categoria: "short"
   },
   {
-    name: "Short adidas Aeroready Gl4383 Hombre",
+    name: "Short adidas Aeroready",
     image:"https://imgur.com/i2eZgqX.png",
     image1:"https://http2.mlstatic.com/D_NQ_NP_2X_641350-MLA50879886265_072022-F.webp",
     image2:"https://http2.mlstatic.com/D_NQ_NP_2X_894824-MLA50879886264_072022-F.webp",
@@ -940,7 +927,7 @@ Product.bulkCreate([
     categoria: "short"
   },
   {
-    name: "Remera Puma Individual Final Jersey Training",
+    name: "Remera Puma Individual",
     image:"https://imgur.com/zZjoqdd.png",
     image1:"https://http2.mlstatic.com/D_NQ_NP_2X_691624-MLA51324303150_082022-F.webp",
     image2:"https://http2.mlstatic.com/D_NQ_NP_2X_926956-MLA51324344004_082022-F.webp",
@@ -954,7 +941,7 @@ Product.bulkCreate([
     categoria: "shirts"
   },
   {
-    name: "Remera Nike Df Wild Run Miler Gx Hombre -newsport",
+    name: "Remera Nike Df Wild",
     image:"https://imgur.com/AzrXPXu.png",
     image1:"https://http2.mlstatic.com/D_NQ_NP_2X_924758-MLA50929441031_072022-F.webp",
     image2:"https://http2.mlstatic.com/D_NQ_NP_2X_943830-MLA50929441034_072022-F.webp",
@@ -968,7 +955,7 @@ Product.bulkCreate([
     categoria: "shirts"
   },
   {
-    name: "Remera Nike Running Humor Hombre Bl Tienda Oficial",
+    name: "Remera Nike Running",
     image:"https://imgur.com/a8dj9Ft.png",
     image1:"https://http2.mlstatic.com/D_NQ_NP_2X_956165-MLA48925428189_012022-F.webp",
     image2:"https://http2.mlstatic.com/D_NQ_NP_2X_903961-MLA48925428190_012022-F.webp",
