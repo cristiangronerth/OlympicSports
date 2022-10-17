@@ -9,6 +9,7 @@ import { getCartItems } from "../../state/cartItem";
 import Pagination from "../../common/Pagination/Pagination";
 
 export default function PantsCategory() {
+  
   const [pants, setPants] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(12);

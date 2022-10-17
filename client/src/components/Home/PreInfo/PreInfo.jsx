@@ -7,7 +7,7 @@ function PreInfo() {
       <p>
         <span className="firstSpan">Who we are</span>
         An independent <span className="secondSpan">brand</span> of sports apparel and
-           accessories that come from a convergence of urban and official sports.
+          accessories that come from a convergence of urban and official sports.
       </p>
     </Info>
   );

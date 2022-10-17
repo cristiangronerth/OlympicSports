@@ -7,6 +7,7 @@ import {
   Stack,
   Image,
 } from "@chakra-ui/react";
+
 const ShirtCard = ({item}) => {
 
   return (

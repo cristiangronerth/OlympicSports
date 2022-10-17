@@ -42,17 +42,7 @@ exports.createProduct = (req, res) => {
   });
 };
 
-exports.getProduct = (req, res) => {
-  const { productId } = req.query;
 
-  Product.findAll({
-    where: {
-      id: productId,
-    },
-  })
-    .then((product) => res.send(product))
-    .catch((err) => console.log(err));
-};
 
 exports.getAllProducts = (req, res) => {
   Product.findAll()
@@ -86,6 +76,20 @@ exports.getProducts = (req, res) => {
     .catch((err) => console.log(err));
 };
 
+
+exports.getProduct = (req, res) => {
+  const { productId } = req.query;
+
+  Product.findAll({
+    where: {
+      id: productId,
+    },
+  })
+    .then((product) => res.send(product))
+    .catch((err) => console.log(err));
+};
+
+
 exports.getProductSearch = (req, res) => {
   const search = req.params.search;
   Product.findAll({
@@ -110,12 +114,12 @@ exports.getProductByIdUser = (req, res) => {
       const obtenerData = async () => {
         const response = Product.findByPk(cartItems[i].dataValues.productId)
         const data = await response
-       
+  
       
     }
     
-   product.push(obtenerData()) 
-     }
+  product.push(obtenerData()) 
+    }
     console.log(product);
   })
   .then(resul => console.log(resul))

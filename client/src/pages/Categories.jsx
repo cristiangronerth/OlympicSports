@@ -6,7 +6,7 @@ const Categories = () => {
   return (
     <>
       <Navbar />
-     <Category2/>
+      <Category2/>
     </>
   );
 };
